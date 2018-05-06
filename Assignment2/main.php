@@ -898,9 +898,128 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
             <div class="col container" style=":90%">
                 <div class="row">
                     <div class="col p-3 text-center">
-                        <h4>Add record</h4>
+                        <h4>Adding a New Faculty Member</h4>
                     </div>
                 </div>
+				<form id = "addForm">
+					<div class = "form-group">
+						<label for = "EnglishName">English Name</label>
+						<input required type = "text" class = "form-control" id = "add-EnglishName" name = "add-EnglishName" placeholder = "e.g. Wong Tai Sin Johnny">
+					</div>
+					<div class = "form-group">
+						<label for = "ChineseName">Chinese Name</label>
+						<input type = "text" class = "form-control" id = "add-ChineseName" name = "add-ChineseName" placeholder = "(optional) ">
+					</div>
+					<div class = "form-group">
+						<label for = "head">Title</label>
+						<input required type = "text" class = "form-control" id = "add-head" name = "add-head" placeholder = "e.g. Associate Professor">
+					</div>
+					<div class = "form-group">
+						<label for = "school">School</label>
+						<select class = "form-control" id = "add-school" name = "add-school">
+							<option id="sssci">School of Science</option>
+                            <option id="sseng">School of Engineering</option>
+                            <option id="ssbm">School of Business and Management</option>
+                            <option id="shssu">School of Humanities and Social Science</option>
+                            <option id="sipo">Interdisciplinary Programs Office</option>
+						</select>
+					</div>
+					<div class = "form-group">
+						<label for = "department">Department</label>
+						<select class="form-control" id="add-department" name="add-department"><!--hidden attribute use .attr("hidden",false/true); to toggle no need la fuck, a professor can belong to multiple school and multiple department -->
+                            <!--<option></option>-->
+                            <optgroup class="ssci" label="School of Science">
+								<option class="ssci">Division of Life Science</option>
+								<option class="ssci">Department of Chemistry</option>
+								<option class="ssci">Department of Physics</option>
+								<option class="ssci">Department of Mathmatics</option>
+								<option class="ssci">Department of Ocean Science</option>
+							</optgroup>
+							<optgroup class="seng" label="School of Engineering">
+								<option class="seng">Department of Chemical and Biological Engineering</option>
+								<option class="seng">Department of Civil and Environmental Engineering</option>
+								<option class="seng">Department of Computer Science and Engineering</option>
+								<option class="seng">Department of Electronic and Computer Engineering</option>
+								<option class="seng">Department of Industrial Engineering and Decision Analysis</option>
+								<option class="seng">Department of Mechanical and Aerospace Engineering</option>
+								<option class="seng">Division of Integrative Systems and Design Engineering</option>
+							</optgroup>
+							<optgroup class="sbm" label="School of Business and Management">
+								<option class="sbm">Department of Accounting</option>
+								<option class="sbm">Department of Economics</option>
+								<option class="sbm">Department of Finance</option>
+								<option class="sbm">Department of Information Systems, Business Statistics and Operation Management</option>
+								<option class="sbm">Department of Management</option>
+								<option class="sbm">Department of Marketing</option>
+							</optgroup>
+							<optgroup class="hssu" label="School of Humanities and Social Science">
+								<option class="hssu">Division of Humanities</option>
+								<option class="hssu">Division of Social Science</option>
+							</optgroup>
+								<optgroup class="ipo" label="Interdisciplinary Programs Office">
+								<option class="ipo">Division of Environment and Sustainability</option>
+								<option class="ipo">Division of Public Policy</option>
+								<option class="ipo">Dual Degree Program in Technology and Management</option>
+								<option class="ipo">BSc in Risk Management and Business Intelligence Program</option>
+								<option class="ipo">BSc in Environmental Management and Technology Program</option>
+								<option class="ipo">BSc in Individualized Interdisciplinary Major Program (IIM)</option>
+								<option class="ipo">MPhil/PhD in Environmental Science, Policy and Management Program, MSc / PGD in Environmental Science and Management Program</option>
+							</optgroup>
+						</select>
+					</div>
+					<div id = "area-element" class = "form-group">
+						<label for = "area">Reasearch Area</label>
+						<div class = "multiple-area"><input required type = "text" class = "form-control" id = "add-area1" name = "area[]" placeholder = "e.g. Software Technologies"></div>
+					</div>
+					<button id = "add-area-btn" class = "btn btn-primary">Add one more area</button>
+					<script>
+						$(document).ready(function() {
+							var add_area_fields = 1;
+							var wrapper = $("#area-element");
+							var add_btn = $("#add-area-btn");
+							
+							$(add_btn).on("click", function(e) {
+								e.preventDefault();
+								add_area_fields++;
+								var area = "<div class = \"multiple-area\"><input required type = \"text\" class = \"form-control\" id = \"add-area" + add_area_fields + "\" name = \"area[]\" placeholder = \"e.g. Software Technologies\"><a href=\"#\" class=\"remove_field\">Remove</a></div>";
+								$(wrapper).append(area);
+							});
+							
+							$(wrapper).on("click", ".remove_field", function(e) {
+								e.preventDefault(); $(this).parent("div").remove();
+								add_area_fields--;
+							});
+						});
+					</script>
+					<style>
+						#add-area-btn {
+							margin: 0.5em;
+						}
+						.remove_field {
+							float: right;
+						}
+						.multiple-area {
+							margin: 0.5em;
+						}
+					</style>
+					<div class = "form-group">
+						<label for = "telephone">Telephone</label>
+						<input required type = "text" class = "form-control" id = "add-telephone" name = "add-telephone" placeholder = "(optional) e.g. (852) 1234 5678">
+					</div>
+					<div class = "form-group">
+						<label for = "email">Email</label>
+						<input required type = "text" class = "form-control" id = "add-email" name = "add-email" placeholder = "e.g. johnny@gmail.com">
+					</div>
+					<div class = "form-group">
+						<label for = "homepage">Personal Homepage</label>
+						<input required type = "text" class = "form-control" id = "add-homepage" name = "add-homepage" placeholder = "Place your homepage URL here">
+					</div>
+					<div class = "form-group">
+						<label for = "image">Image</label>
+						<input required type = "text" class = "form-control" id = "add-image" name = "add-image" placeholder = "Place your image URL here">
+					</div>
+				</form>
+				<button type = "submit" class = "btn btn-primary">Add Person</button>
             </div>
         </div>
         <!--Edit--><!--form,preload data,back button to list can follow editprofile.php access by modal-->
