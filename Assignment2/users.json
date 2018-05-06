@@ -1,0 +1,82 @@
+{
+    "gillian": {
+        "username": "gillian",
+        "email": "gillian@gmail.com",
+        "firstname": "Gillian",
+        "lastname": "Kong",
+        "password": "1234",
+        "photo": "",
+        "question": "What is your first phone number?",
+        "answer": "8888765"
+    },
+    "YUKMING": {
+        "photo": "profile_pic\/YUKMING.png",
+        "username": "YUKMING",
+        "email": "wong.yukming@ymail.com",
+        "firstname": "Yuk Ming",
+        "lastname": "Wong",
+        "password": "4321",
+        "question": "What is your first phone number?",
+        "answer": "63558912"
+    },
+    "Gillian": {
+        "photo": "profile_pic\/Gillian.png",
+        "username": "Gillian",
+        "email": "gg@gmail.com",
+        "firstname": "Wei Kiu",
+        "lastname": "Kong",
+        "password": "4444",
+        "question": "What is your first phone number?",
+        "answer": "90806787"
+    },
+    "Edward": {
+        "photo": "profile_pic\/Edward.png",
+        "username": "Edward",
+        "email": "eternal.edward1997@gmail.com",
+        "firstname": "Edward",
+        "lastname": "Wong",
+        "password": "1234",
+        "question": "Who is your favourite professor?",
+        "answer": "Desmond"
+    },
+    "thomas": {
+        "photo": "profile_pic\/thomas.png",
+        "username": "thomas",
+        "email": "thomas.94264898@gmail.com",
+        "firstname": "Thomas",
+        "lastname": "Wong",
+        "password": "twrw4l",
+        "question": "What will you do when you are boring?",
+        "answer": "gaming"
+    },
+    "kiki": {
+        "photo": "profile_pic\/kiki.png",
+        "username": "kiki",
+        "email": "kikiwithyou@gmail.com",
+        "firstname": "Kiki",
+        "lastname": "Cho",
+        "password": "0000",
+        "question": "Who is your favourite professor?",
+        "answer": "Michael"
+    },
+    "Matt": {
+        "photo": "",
+        "username": "Matt",
+        "email": "matt@kiki.com",
+        "firstname": "Matt",
+        "lastname": "Cho",
+        "password": "33333333",
+        "question": "What is your first phone number?",
+        "answer": "00000000"
+    },
+    "Tony": {
+        "username": "Tony",
+        "email": "tony@gmail.com",
+        "firstname": "Tony",
+        "lastname": "Chan",
+        "password": "987654321",
+        "photo": "",
+        "question": "Who is your favourite professor?",
+        "answer": "King Chow"
+    }
+}

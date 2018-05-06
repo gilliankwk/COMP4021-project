@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xml format suggested
+optional=are not necessary required, left tag, just left the content NULL
+...=continue until no data
+Every field 2 professor, composite field no double count-->
+<staffs>
+    <staff>
+		<name>
+			<EnglishName>Chen C. W. Kevin</EnglishName>
+			<ChineseName></ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Head, Chair Professor</head>
+				<department>Department of Accounting</department>
+				<school>School of Business and Management</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Accounting Research</area>
+		</researchAreas>
+		<contact>
+			<telephone></telephone>
+			<email>acchen@ust.hk</email>
+			<homepage>http://www.bm.ust.hk/acct/faculty-and-staff/directory/acchen</homepage>
+		</contact>
+		<image>data-pic/acchen.jpg</image>
+	</staff>
+	<staff>
+		<name>
+			<EnglishName>Zang Amy</EnglishName>
+			<ChineseName></ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Associate Professor</head>
+				<department>Department of Accounting</department>
+				<school>School of Business and Management</school>
+			</position>
+			<position>
+				<head>Director</head>
+				<department></department>
+				<school>Interdisciplinary Programs Office</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Accounting analyst</area>	
+		</researchAreas>
+		<contact>
+			<telephone> (852) 2358-7561</telephone>
+			<email>amy.zang@ust.hk</email>
+			<homepage>https://www.amyzang.org/</homepage>
+		</contact>
+		<image>data-pic/aczang.jpg</image>
+	</staff>
+	<staff>
+		<name>
+			<EnglishName>Lim Wooyoung</EnglishName>
+			<ChineseName></ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Associate Professor</head>
+				<department>Department of Economics</department>
+				<school>School of Business and Management</school>
+			</position>
+			<position>
+				<head>Associate Director, Centre for Experimental Business Research</head>
+				<department>Department of Economics</department>
+				<school>School of Business and Management</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Game Theory</area>
+			<area>Experimental Economics</area>
+		</researchAreas>
+		<contact>
+			<telephone> (852) 9502-5226 </telephone>
+			<email>wooyoung@ust.hk</email>
+			<homepage>http://wooyoung78lim.wixsite.com/wooyounglim</homepage>
+		</contact>
+		<image>data-pic/wooyoung.jpg</image>
+	</staff>
+	<staff>
+		<name>
+			<EnglishName>Siu Kam Wing</EnglishName>
+			<ChineseName>蕭錦榮</ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Associate Professor of Business Education</head>
+				<department>Department of Economics</department>
+				<school>School of Business and Management</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Industrial Organization</area>
+			<area>Health Economics</area>
+			<area>Chinese Economy</area>
+		</researchAreas>
+		<contact>
+			<telephone></telephone>
+			<email>eckwsiu@ust.hk</email>
+			<homepage>http://www.bm.ust.hk/econ/faculty-and-staff/directory/eckwsiu</homepage>
+		</contact>
+		<image>data-pic/eckwsiu.jpg</image>
+	</staff>
+	<staff>
+		<name>
+			<EnglishName>Liu Xue Wen</EnglishName>
+			<ChineseName></ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Associate Professor</head>
+				<department>Department of Finance</department>
+				<school>School of Business and Management</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Financial Economics</area>
+			<area>Macroeconomics</area>
+			<area>Growth and Development</area>
+			<area>Chinese Economy</area>
+		</researchAreas>
+		<contact>
+			<telephone>(852) 2358-7679</telephone>
+			<email>xuewenliu@ust.hk</email>
+			<homepage>http://xuewenliu.people.ust.hk/</homepage>
+		</contact>
+		<image>data-pic/xuewenliu.jpg</image>
+	</staff>
+	<staff>
+		<name>
+			<EnglishName>Zhang Chu</EnglishName>
+			<ChineseName></ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Acting Head/ Professor</head>
+				<department>Department of Finance</department>
+				<school>School of Business and Management</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Asset pricing theories and empirical studies</area>
+			<area>Financial markets and institutions in China and Japan</area>
+		</researchAreas>
+		<contact>
+			<telephone>(852) 2358-7684</telephone>
+			<email>czhang@ust.hk</email>
+			<homepage>http://czhang.people.ust.hk/</homepage>
+		</contact>
+		<image>data-pic/czhang.jpg</image>
+	</staff>
+	<staff>
+		<name>
+			<EnglishName>Zheng Rong</EnglishName>
+			<ChineseName></ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Associate Professor, Information Systems</head>
+				<department>Department of Information Systems, Business Statistics and Operations Management</department>
+				<school>School of Business and Management</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Predictive modeling for business intelligence</area>
+			<area>Computational text analysis</area>
+			<area>Social network analytics</area>
+		</researchAreas>
+		<contact>
+			<telephone></telephone>
+			<email>rzheng@ust.hk</email>
+			<homepage>http://www.bm.ust.hk/isom/faculty-and-staff/directory/rzheng</homepage>
+		</contact>
+		<image>data-pic/rzheng.jpg</image>
+	</staff>
+	<staff>
+		<name>
+			<EnglishName>Nasiry Javad</EnglishName>
+			<ChineseName></ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Associate Professor, Operations Management</head>
+				<department>Department of Information Systems, Business Statistics and Operations Management</department>
+				<school>School of Business and Management</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Revenue management with behavioural considerations</area>
+			<area>Behavioural operations</area>
+			<area>Supply chain management</area>
+			<area>Healthcare management</area>
+		</researchAreas>
+		<contact>
+			<telephone></telephone>
+			<email>nasiry@ust.hk</email>
+			<homepage>http://www.bm.ust.hk/isom/faculty-and-staff/directory/nasiry</homepage>
+		</contact>
+		<image>data-pic/nasiry.jpg</image>
+	</staff>
+	<staff>
+		<name>
+			<EnglishName>Ho Mary</EnglishName>
+			<ChineseName></ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Adjunct Assistant Professor</head>
+				<department>Department of Management</department>
+				<school>School of Business and Management</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Business Ethics</area>
+			<area>Responsible Investment</area>
+			<area>Corporate Sustainability</area>
+			<area>ESG</area>
+		</researchAreas>
+		<contact>
+			<telephone></telephone>
+			<email>maryho@ust.hk</email>
+			<homepage>http://www.bm.ust.hk/mgmt/faculty-and-staff/directory/maryho</homepage>
+		</contact>
+		<image>data-pic/maryho.jpg</image>
+	</staff>
+	<staff>
+		<name>
+			<EnglishName>Cho Jaee</EnglishName>
+			<ChineseName></ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Assistant Professor</head>
+				<department>Department of Management</department>
+				<school>School of Business and Management</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Cultural Mixing and Globalization</area>
+			<area>Diversity Ideologies</area>
+			<area>Creativity</area>
+			<area>Judgement and Decision Making</area>
+			<area>Diversity and Conflict</area>
+		</researchAreas>
+		<contact>
+			<telephone></telephone>
+			<email>jaeecho@ust.hk</email>
+			<homepage>http://www.bm.ust.hk/mgmt/faculty-and-staff/directory/jaeecho</homepage>
+		</contact>
+		<image>data-pic/jaeecho.jpg</image>
+	</staff>
+	<staff>
+		<name>
+			<EnglishName>Lans Ralf van der</EnglishName>
+			<ChineseName></ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Associate Professor</head>
+				<department>Department of Marketing</department>
+				<school>School of Business and Management</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Bayesian Data Analysis</area>
+			<area>Eye Movements</area>
+			<area>Retailing</area>
+			<area>Spatial Models</area>
+			<area>Visual Attention</area>
+			<area>Online Marketing</area>
+		</researchAreas>
+		<contact>
+			<telephone>(852) 2358 7706</telephone>
+			<email>rlans@ust.hk</email>
+			<homepage>http://www.bm.ust.hk/mark/faculty-and-staff/directory/rlans</homepage>
+		</contact>
+		<image>data-pic/rlans.jpg</image>
+	</staff>
+	<staff>
+		<name>
+			<EnglishName>Lin Song</EnglishName>
+			<ChineseName></ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Assistant Professor</head>
+				<department>Department of Marketing</department>
+				<school>School of Business and Management</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Product and Pricing Policies</area>
+			<area>Consumer Learning and Search</area>
+			<area>New Products</area>
+			<area>Platform design</area>
+			<area>Advertising</area>
+		</researchAreas>
+		<contact>
+			<telephone>(852) 2358 7700</telephone>
+			<email>mksonglin@ust.hk</email>
+			<homepage>http://www.bm.ust.hk/mark/faculty-and-staff/directory/mksonglin</homepage>
+		</contact>
+		<image>data-pic/mksonglin.jpg</image>
+	</staff>
+</staffs>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<staffList>
+	<school num = "1">	// engine
+		<staff num = "001">
+			<name>Gibson LAM</name>
+			<image>https://www.cse.ust.hk/admin/people/faculty/photos/gibson.jpg</image>
+			<title>Lecturer</title>
+			<department code = "comp">Department of Computer Science and Engineering</department>
+			<research>
+				<area>Software Technologies</area>
+			</research>
+			<page>https://www.cse.ust.hk/~gibson/</page>
+		</staff>
+		
+		<staff num = "002">
+			<name>Desmond Yau Chat TSOI</name>
+			<image>https://www.cse.ust.hk/admin/people/faculty/photos/desmond.jpg</image>
+			<title>Lecturer</title>
+			<department code = "comp">Department of Computer Science and Engineering</department>
+			<research>
+				<area>Vision and Graphics</area>
+			</research>
+			<page>https://www.cse.ust.hk/~desmond/</page>
+		</staff>
+
+		<staff num = "003">
+			<name>Chii SHANG</name>
+			<image>http://www.ce.ust.hk/StaffImages/ChiiShang.jpg</image>
+			<title>Professor (Associate Head)</title>
+			<department code = "civl">Department of Civil and Environmental Engineering</department>
+			<research>
+				<area>Environmental</area>
+			</research>
+			<page>http://repository.ust.hk/ir/AuthorProfile/shang-chii</page>
+		</staff>
+		
+		<staff num = "004">
+			<name>Chih-Chen CHANG</name>
+			<image>http://www.ce.ust.hk/StaffImages/Chang%20C%20C%20s.jpg</image>
+			<title>Professor</title>
+			<department code = "civl">Department of Civil and Environmental Engineering</department>
+			<research>
+				<area>Structural</area>
+			</research>
+			<page>http://cechang.people.ust.hk/</page>
+		</staff>
+	</school>
+	
+	<school num = "2">	// science
+		<staff num = "005">
+			<name>Ching W. TANG</name>
+			<image>http://ias.ust.hk/ias/files/ppl/large/1417664259_b.jpg</image>
+			<title>Chair Professor</title>
+			<department code = "chem">Department of Chemistry</department>
+			<research>
+				<area>Chemical and Condensed Matter Physics</area>
+			</research>
+			<page>http://ias.ust.hk/web/ias/eng/people_detail.php?id=77&catid=2&sid=12</page>
+		</staff>
+		
+		<staff num = "006">
+			<name>Wei-Min DAI</name>
+			<image>http://chdai.people.ust.hk/images/dai-2017_2b.jpg</image>
+			<title>Professor</title>
+			<department code = "chem">Department of Chemistry</department>
+			<research>
+				<area>Synthetic Organic</area>
+				<area>Bioorganic Chemistry</area>
+			</research>
+			<page>http://chdai.people.ust.hk/</page>
+		</staff>
+		
+		<staff num = "007">
+			<name>Bradley A FOREMAN</name>
+			<image>http://physics.ust.hk/files/ppl/large/1404463271_p.jpg</image>
+			<title>Associate Professor</title>
+			<department code = "phys">Department of Physics</department>
+			<research>
+				<area>Theoretical Physics</area>
+			</research>
+			<page>http://repository.ust.hk/ir/AuthorProfile/foreman-bradley-a</page>
+		</staff>
+		
+		<staff num = "008">
+			<name>Yilong HAN</name>
+			<image>http://physics.ust.hk/files/ppl/large/1402449936_p.jpg</image>
+			<title>Professor</title>
+			<department code = "phys">Department of Physics</department>
+			<research>
+				<area>Soft Matter Physics</area>
+				<area>Statistical Physics</area>
+			</research>
+			<page>http://www.phys.ust.hk/yilong/</page>
+		</staff>
+	</school>
+	
+	<school num = "3">	//busi
+		<staff num = "009">
+			<name>Shaohui ZHENG</name>
+			<image>http://www.bm.ust.hk/isom/img/imagecache/_files_faculty_imzheng_15feb11_480x530_3c85ffffff1.jpg</image>
+			<title>Chair Professor</title>
+			<department code = "isom">Department of Information Systems, Business Statistics and Operation Management</department>
+			<research>
+				<area>Supply Chain Management</area>
+				<area>Interface of Operations and Marketing</area>
+				<area>Production and Quality Control</area>
+				<area>Queuing Systems</area>
+			</research>
+			<page>http://imzheng.people.ust.hk/</page>
+		</staff>
+		
+		<staff num = "010">
+			<name>Kar Yan TAM</name>
+			<image>http://www.bm.ust.hk/isom/img/imagecache/_files_faculty_kytam_480x480_3c85ffffff1.jpg</image>
+			<title>Chair Professor</title>
+			<department code = "isom">Department of Information Systems, Business Statistics and Operation Management</department>
+			<research>
+				<area>Electronic Commerce</area>
+				<area>Big Data</area>
+				<area>Personalization and HCI</area>
+			</research>
+			<page>http://repository.ust.hk/ir/AuthorProfile/tam-kar-yan</page>
+		</staff>
+	
+		<staff num = "011">
+			<name>Kam Wing SIU</name>
+			<image>http://www.bm.ust.hk/econ/img/imagecache/_files_faculty_eckwsiu_480x654_3c85ffffff1.jpg</image>
+			<title>Assistant Professor of Business Education</title>
+			<department code = "econ">Department of Economics</department>
+			<research>
+				<area>Industrial Organization</area>
+				<area>Health Economics</area>
+				<area>Chinese Economy</area>
+			</research>
+			<page>https://hk.linkedin.com/in/kam-wing-siu-91640192</page>
+		</staff>
+		
+		<staff num = "012">
+			<name>Danyang XIE</name>
+			<image>http://www.bm.ust.hk/econ/img/imagecache/_files_faculty_xie_danyang_480x480_3c85ffffff1.jpg</image>
+			<title>Professor</title>
+			<department code = "econ">Department of Economics</department>
+			<research>
+				<area>Economic Growth</area>
+				<area>Money and Banking</area>
+			</research>
+			<page>http://danyang.xie.tiddlyspot.com/</page>
+		</staff>
+	</school>
+	
+	<school num = "4">	// human and social science
+			<staff num = "013">
+			<name>Albert PARK</name>
+			<image>http://sosc.ust.hk/upload/photo/227_AlbertPark.jpg</image>
+			<title>Chair Professor</title>
+			<department code = "sosc">Division of Social Science</department>
+			<research>
+				<area>Development Economics</area>
+				<area>Labor Economics</area>
+				<area>Applied Microeconomics</area>
+				<area>Chinese Economy</area>
+			</research>
+			<page></page>
+		</staff>
+		
+		<staff num = "014">
+			<name>Yi-min LIN</name>
+			<image>http://sosc.ust.hk/upload/photo/236_YiminLin.jpg</image>
+			<title>Professor</title>
+			<department code = "sosc">Division of Social Science</department>
+			<research>
+				<area>Political Economy</area>
+				<area>Organizations and Institutions</area>
+				<area>China</area>
+			</research>
+			<page></page>
+		</staff>
+		
+		<staff num = "015">
+			<name>Lisa Lai-ming WONG</name>
+			<image>http://www.huma.ust.hk/upload/photo/167_hmlmlisa.jpg</image>
+			<title>Associate Professor</title>
+			<department code = "huma">Division of Humanities</department>
+			<research>
+				<area>Modern Poetry</area>
+				<area>Lyric Theory</area>
+				<area>Comparative Literature</area>
+			</research>
+			<page></page>
+		</staff>
+		
+		<staff num = "016">
+			<name>Matthew TOMMASINI</name>
+			<image>http://www.huma.ust.hk/upload/photo/182_Tommasini%20headshot%202014%20(2).jpg</image>
+			<title>Associate Professor</title>
+			<department code = "huma">Division of Humanities</department>
+			<research>
+				<area>Music Composition</area>
+			</research>
+			<page></page>
+		</staff>
+	</school>
+	
+	<school num = "5">	//IPO
+		<staff num = "017">
+			<name>Jimmy FUNG</name>
+			<image>https://www.ipo.ust.hk/userfiles/professor/83405dc43a39226732005361857df25e.jpg</image>
+			<title>Professor</title>
+			<department code = "envr">Division of Environment & Sustainability</department>
+			<research>
+				<area>Meteorology</area>
+				<area>Air Pollution</area>
+			</research>
+			<page>http://www.math.ust.hk/~majfung/</page>
+		</staff>
+		
+		<staff num = "018">
+			<name>Arthur LAU</name>
+			<image>https://www.ipo.ust.hk/userfiles/professor/cdbbeab7116f1d6ae0b800aafab8c736.jpg</image>
+			<title>Adjunct Associate Professor</title>
+			<department code = "envr">Division of Environment & Sustainability</department>
+			<research>
+				<area>Bioaerosols</area>
+				<area>Biomarkers and Microbial VOCs</area>
+				<area>General Air Quality</area>
+				<area>Environmental Education</area>
+			</research>
+			<page>http://www.envr.ust.hk/our-division/people/faculty-staff/pslau.html</page>
+		</staff>
+		
+		<staff num = "019">
+			<name>Raymond WONG</name>
+			<image>https://www.ipo.ust.hk/userfiles/professor/e73fa69d78caa7c6e44a509b3516448b.jpg</image>
+			<title>Associate Professor</title>
+			<department code = "rmbi">BSc in Risk Management and Business Intelligence Program</department>
+			<research>
+				<area>Big Data</area>
+				<area>Data Analytics</area>
+				<area>Data Mining and Database</area>
+			</research>
+			<page>http://www.cse.ust.hk/~raywong/</page>
+		</staff>
+			
+		<staff num = "020">
+			<name>Kani CHEN</name>
+			<image>https://www.ipo.ust.hk/userfiles/professor/9745e38beffdbec95950c02fb0e9e628.jpg</image>
+			<title>Professor</title>
+			<department code = "rmbi">BSc in Risk Management and Business Intelligence Program</department>
+			<research>
+				<area>Statistics</area>
+			</research>
+			<page>http://www.math.ust.hk/~makchen/</page>
+		</staff>
+	</school>
+	
+</staffList>

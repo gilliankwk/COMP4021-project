@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <title>Assignment2: forgot</title>
+        <meta charset="utf-8">
+        <meta name="viewport" 
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> 
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+         <script src='https://www.google.com/recaptcha/api.js'></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
+        <script>
+            $(document).ready(function(){
+                $(".more").hide();
+                //ajax for check email
+                $("#email").on("change",function(){
+                   var query="email="+encodeURIComponent($("#email").val());
+                    $.getJSON("checkemail.php",query,function(data){
+                       if(data.available=='no'){
+                           $("#notfound").hide();
+                           $("#register").hide();
+                           //get question
+                           $.getJSON("forgot-getquestion.php",query,function(data){
+                              $("#question").text(data.question); 
+                           });
+                           $(".more").show();
+                       } else{
+                           $("#notfound").show();
+                           $("#register").show();
+                           $(".more").hide();
+                       }
+                    });
+                });
+                //submit of form
+                $("#submit").on("click",function(){
+                    $("#forgotForm").submit();    
+                });
+                $("#forgotForm").on("submit",function(){
+                    var query2=$("#forgotForm").serialize();
+                    console.log(query2);
+                    $.post("forgot.php",query2,function(data){
+                        console.log(data);
+                        $("#credential").show();
+                        if(data.status=="yes"){
+                            $("#status").removeClass("text-danger");
+                            $("#status").addClass("text-success");
+                        }else{
+                            $("#status").removeClass("text-success");
+                            $("#status").addClass("text-danger");
+                            setTimeout(function(){
+                                window.location="forgot.html";
+                            },4000);
+                        }
+                        $("#status").text(data.info);
+                    });
+                    return false;
+                });
+                //handling redirect
+                $("#register").on("click",function(){
+                    window.location="register.html";
+                });
+                $("#login").on("click",function(){
+                    window.location="signin.php";
+                });
+            });
+        </script>
+    </head>
+    <body class="bg-primary p-5">
+        <div class="container rounded bg-white mt-3 p-2" style="20rem">
+            <div class="row">
+                <div class="col text-center pt-3">
+                    <h4>Forgot Username/password</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center pt-3">
+                    <p>type in the info to retrieve your username or password</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <form id="forgotForm" class="ml-5 mr-5" style="width:100%">
+                    <div class="form-row">
+                        <div class="col-sm-6 form-group">
+                            <label for="email">E-mail:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                </div>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="E-mail address">
+                            </div>
+                        </div>
+                        <div id="notfound" class="col-sm-6 form-text text-danger" style="display:none">
+                            <small><i class="fas fa-times"></i>E-mail does not exist</small>
+                        </div>
+                    </div>
+                    <div class="form-row more">
+                        <div class="col form-group">
+                            <label id="question"for="answer"></label>
+                            <div class="input-group">
+                                <input required type="text" class="form-control" id="answer" name="answer" placeholder="Answer to your question">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row more">
+                        <div class="form_group" style="margin-left:auto;margin-right:auto">
+                            <div class="g-recaptcha" data-sitekey="6Lf_w1UUAAAAAIf-yuqgDXXEGyDYEY1jmQ1BV9kO"data-size="compact" >
+                                </div>
+                        </div>
+                    </div>
+                    <div class="form-row more">
+                        <button type="button" id="submit"class="btn btn-primary">Retrieve</button>
+                    </div>
+                </form>
+            </div>
+            <hr>
+            <div class="row mb-2" id="credential" style="display:none">
+                <div class="col text-center" id="status">
+                </div>
+            </div>
+            <div class="row mb-2" id="register" style="display:none">
+                <div class="col-sm-4 ml-3 mb-3">
+                    <button type="button" class="btn btn-info" id="register"><i class="fas fa-clipboard-list"></i>Register Now!</button>
+                </div>
+            </div>
+            <div class="row " id="login">
+                <div class="col-sm-4 ml-3 mb-3">
+                    <button type="button" class="btn btn-primary" id="login"><i class="fas fa-at"></i>Back to sign-in</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
