@@ -1071,7 +1071,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 						<br>
 						<!--<input required type = "file" class = "form-control" id = "add-image" name = "add-image">-->
 						<label class="btn btn-info">
-							<input required type = "file" class = "form-control" id = "add-image" style = "display:none;">
+							<input required type = "file" class = "form-control" id = "add-image" name = "add-image" style = "display:none;">
 							<i class="far fa-image"></i> Select Image
 						</label>
 					</div>
