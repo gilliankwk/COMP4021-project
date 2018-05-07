@@ -1082,7 +1082,144 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 				<div>
 			</div>
         </div>
+    </div>
+</div>
         <!--Edit--><!--form,preload data,back button to list can follow editprofile.php access by modal-->
+                <div class="container rounded bg-white p-2">
+                <div class="row"></div>
+                <hr>
+            <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="container rounded bg-light">
+                        <div class="row">
+                            <div class="col text-center p-3">
+                                <h5>Profile picture</h5>
+                            </div>
+                        </div>
+                            <!--                                              -->   
+                            <div class="row">
+                                <div class="col">
+                                    <div class="profile-header-container">   
+                                      <div class="profile-header-img pt-3">
+                                            <?php 
+                                            $location="profile_pic/".$_SESSION["username"].".png";
+                                            if(file_exists($location)){
+                                                echo "<img id='pic' class='img-circle' src=".$location." />";
+                                            }else{
+                                                echo "<img id='pic' class='img-circle' src='profile_pic/untitle.png' />";
+                                            }
+                                            ?>
+                            <!-- badge -->
+                                            <div class="rank-label-container">
+                                            <span class="label label-default rank-label"><?php
+                                                    echo $_SESSION["username"];
+                                                ?></span>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                          <!--showing pro pic style-->
+                            <style>
+                                .profile-header-container{
+                                    margin: 0 auto;
+                                    text-align: center;
+                                }
+                                .profile-header-img > img.img-circle {
+                                    width: 120px;
+                                    height: 120px;
+                                    border: 2px solid #51D2B7;
+                                    border-radius: 60px;
+                                }
+
+                                .profile-header {
+                                    margin-top: 43px;
+                                }
+                                
+                                .rank-label-container {
+                                    margin-top: -19px;
+                                /* z-index: 1000; */
+                                    text-align: center;
+                                }
+
+                                .label.label-default.rank-label {
+                                    background-color: rgb(81, 210, 183);
+                                    padding: 5px 10px 5px 10px;
+                                    border-radius: 27px;
+                                }
+                            </style>
+             <!--                                              -->               
+                            <div class="row">
+                                <div class="container" >
+                                    <input type="file" name="file" id="file">
+
+                                    <!-- Drag and Drop container-->
+                                    <div class="upload-area"  id="uploadfile">
+                                        <h5 id="areatext">Drag and Drop file here<br/>Or<br/>Click to select file</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-center text-danger p-3" id="propicstatus" style="display:none;" >
+
+                                </div>
+                            </div>
+                            <hr>
+                             <div class="row p-2">
+                                <div class="col text-center">
+                                    <button id="back" class="btn btn-primary"><i class="fas fa-chevron-circle-left"></i> Back to main page!</button>
+                                </div>
+                            </div>
+                            <div class="row p-2">
+                                <div class="col text-center">
+                                    <button type="submit" form="editForm" id="commit" class="btn btn-primary">  <i class="fas fa-clipboard-check"></i> Commit change   </button>
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="col text-center p-3" id="success">
+
+                                </div>
+                            </div>
+                            
+                            <!--           -->
+                            <!--image upload handling-->
+                            <style>
+                                .upload-area{
+                                    width: 100%;
+                                    height: 200px;
+                                    border: 2px dashed lightgray;
+                                    border-radius: 3px;
+                                    margin: 0 auto;
+                                    margin-top: 1em;
+                                    text-align: center;
+                                    overflow: auto;
+                                }
+                                .upload-area.highlight{
+                                    border: 2px dashed gray ;
+                                    border-radius: 3px;
+                                }
+
+                                .upload-area:hover{
+                                    cursor: pointer;
+                                }
+
+                                #areatext{
+                                    text-align: center;
+                                    font-weight: normal;
+                                    font-family: sans-serif;
+                                    line-height: 50px;
+                                    color: lightgray;
+                                }
+
+                                #file{
+                                    display: none;
+                                }
+                            </style>
+                        </div>
+                    </div>
+        
+        
+        <!--edit -right side-->
         <div id="Edit"class="row" style="display:none">
             <div class="col container" style=":90%">
                 <div class="row">
@@ -1090,9 +1227,60 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                         <h4>Edit record</h4>
                     </div>
                 </div>
+                                
+                        <!--                            _____________________________________________-->
+                        <div class="form-group"><!--English Name-->
+                            <div class="form-group">
+                                <label for = "EnglishName">English Name </label>
+                                <input required type = "text" class = "form-control" id = "edit-EnglishName" name = "edit-EnglishName" placeholder = "English Name">
+                            </div>
+                            
+                        </div>
+                        
+                        <!--                            _____________________________________________-->                       
+                        <div class="form-group"><!--Chinese Name-->
+                            <div class="form-group">
+                                <label for = "ChineseName">Chinese Name </label>
+                                <input type = "text" class = "form-control" id = "edit-ChineseName" name = "edit-ChineseName" placeholder = "Chinese name">
+                             </div>
+                        </div>                         
+                        
+                        <!--                            _____________________________________________-->
+                        <div class="form-group"><!--Title-->
+                            <div class="form-group">
+                                <label for= "head">Title </label>
+                                <input required type = "text" class = "form-control" id = "edit-head" name = "edit-head" placeholder = "Title">  
+                            </div>   
+                        </div>
+                        
+                        <!--                            _____________________________________________-->                  
+                        <div class="form-group"><!--School-->
+                            <div class="form-group">
+                                <label for= "school">School </label>
+                                <select class = "form-control" id = "edit-school" name = "edit-school">
+                                    <option id="sssci">School of Science</option>
+                                    <option id="sseng">School of Engineering</option>
+                                    <option id="ssbm">School of Business and Management</option>
+                                    <option id="shssu">School of Humanities and Social Science</option>
+                                    <option id="sipo">Interdisciplinary Programs Office</option>
+                                </select>                       
+                            </div>  
+                       </div>              
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
             </div>
         </div>
-  </div>
     <!--modal for detail-->
     <script>
         $(document).ready(function(){
