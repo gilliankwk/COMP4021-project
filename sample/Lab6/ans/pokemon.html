@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 6: Pokémon Database</title>
+    <meta charset="utf-8">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> 
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        // This is the hashchange event function
+        $(window).on('hashchange', function() {
+            // Get the fragment identifier from the URL
+            var page = window.location.hash;
+            if (page == "") page = "#list";
+
+            // You need to change this so that the corresponding page is shown
+            // alert(page);
+
+            $(".page").hide();
+
+            switch (page) {
+            case "#list":
+                $("#listPage").show();
+                break;
+            case "#add":
+                $("#addPage").show();
+                break;
+            }
+        });
+
+        // You may want to trigger the hashchange event when the page loads
+        $(window).trigger("hashchange");
+
+        $("#listForm select").on("change", function() {
+            var query = $("#listForm").serialize();
+
+            $.get("list.php", query, function(data) {
+                var html = "<div class='row'>";
+                $(data).find("generation").each(function(i, generation) {
+                    $(generation).find("pokemon").each(function(i, pokemon) {
+                        pokemon = $(pokemon);
+
+                        html += "<div class='pokemon col-4 col-md-3 col-lg-2'>";
+
+                        if (pokemon.find("image").text() != "") {
+                            html += "<div class='image'><img src='" + pokemon.find("image").text() + "' class='w-75' alt='Image'></div>";
+                        }
+
+                        html += "<div class='name'>" + pokemon.find("name").text() + "</div>";
+
+                        html += "<div class='types'>";
+                        pokemon.find("type").each(function(i, type) {
+                            if (i > 0) html += ", ";
+                            html += "<span class='type'>" + $(type).text() + "</span>";
+                        });
+                        html += "</div>";
+
+                        html += "</div>";
+                    });
+                });
+                html += "</div>";
+                $("#listContent").html(html);
+            })
+                .fail(function() {
+                    alert("Unknown error!");
+                });
+        });
+
+        $("#listForm select:first").trigger("change");
+
+        $("#addForm").on("submit", function() {
+            var query = $("#addForm").serialize();
+
+            $.get("add.php", query, function(data) {
+                if ($(data).find("error").length) {
+                    alert($(data).find("error").text());
+                }
+                else
+                    window.location.hash = "#list";
+            })
+                .fail(function() {
+                    alert("Unknown error!");
+                });
+
+            return false;
+        });
+    });
+    </script>
+    <style>
+    /* Set up your own styles for the navbar and the Pokémon list */
+    .navbar {
+        margin: 1em;
+        border: 2px darkgray solid;
+        border-radius: 1em;
+        background:
+    }
+    .navbar-brand img {
+        height: 80px;
+        margin-right: 40px;
+    }
+    .container h2 {
+        text-align: center;
+    }
+    .pokemon {
+        padding: 1em;
+    }
+    .pokemon .name {
+        text-align: center;
+        font-size: 120%;
+        font-weight: bold;
+        color: darkgray;
+    }
+    .pokemon .image {
+        text-align: center;
+    }
+    .pokemon .types {
+        text-align: center;
+    }
+    .pokemon .type {
+        font-size: 90%;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <!-- Put your navbar here -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img src="pokemon-logo.svg" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#list">List Pokémon</a>
+          </li>            
+          <li class="nav-item">
+            <a class="nav-link" href="#add">Add Pokémon</a>
+          </li>            
+        </ul>
+      </div>
+    </nav>
+
+    <!-- This is the listing page -->
+    <div id="listPage" class="container page pb-3" style="display: none">
+      <h2>Pokémon List</h2>
+
+      <!-- Add the form for listing the Pokémon -->
+      <form id="listForm">
+        <div class="form-row">
+          <div class="form-group col-6 col-md-4 col-lg-3 offset-md-2 offset-lg-3">
+            <label for="generationFilter">Generation</label>
+            <select required class="form-control" id="generationFilter" name="generation">
+              <option value="">- All -</option>
+              <option value="1">Generation 1</option>
+              <option value="2">Generation 2</option>
+              <option value="3">Generation 3</option>
+              <option value="4">Generation 4</option>
+              <option value="5">Generation 5</option>
+              <option value="6">Generation 6</option>
+              <option value="7">Generation 7</option>
+            </select>
+          </div>
+          <div class="form-group col-6 col-md-4 col-lg-3">
+            <label for="typeFilter">Type</label>
+            <select required class="form-control" id="typeFilter" name="type">
+              <option value="">- All -</option>
+              <option>Normal</option>
+              <option>Fire</option>
+              <option>Water</option>
+              <option>Electric</option>
+              <option>Grass</option>
+              <option>Ice</option>
+              <option>Fighting</option>
+              <option>Poison</option>
+              <option>Ground</option>
+              <option>Flying</option>
+              <option>Psychic</option>
+              <option>Bug</option>
+              <option>Rock</option>
+              <option>Ghost</option>
+              <option>Dragon</option>
+              <option>Dark</option>
+              <option>Steel</option>
+              <option>Fairy</option>
+            </select>
+          </div>
+        </div>
+      </form>
+      <div id="listContent">
+      </div>
+    </div>
+
+    <!-- This is the adding page -->
+    <div id="addPage" class="container page pb-3" style="display: none">
+      <h2>Adding a New Pokémon</h2>
+
+      <!-- Add the form for a new Pokémon here -->
+      <form id="addForm">
+        <div class="form-group">
+          <label for="nationalNumber">National number</label>
+          <input type="number" min="1" required class="form-control" id="nationalNumber" name="nationalNumber" placeholder="Enter national number">
+        </div>
+        <div class="form-group">
+          <label for="pokemonName">Pokémon name</label>
+          <input type="text" required class="form-control" id="pokemonName" name="pokemonName" placeholder="Enter Pokémon name">
+        </div>
+        <div class="form-group">
+          <label for="imageAddress">Image address</label>
+          <input type="url" required class="form-control" id="imageAddress" name="imageAddress" placeholder="Enter image address">
+        </div>
+        <div class="form-group">
+          <label for="pokemonType">Pokémon type(s)</label>
+          <select required multiple class="form-control" id="pokemonType" name="pokemonType[]">
+            <option>Normal</option>
+            <option>Fire</option>
+            <option>Water</option>
+            <option>Electric</option>
+            <option>Grass</option>
+            <option>Ice</option>
+            <option>Fighting</option>
+            <option>Poison</option>
+            <option>Ground</option>
+            <option>Flying</option>
+            <option>Psychic</option>
+            <option>Bug</option>
+            <option>Rock</option>
+            <option>Ghost</option>
+            <option>Dragon</option>
+            <option>Dark</option>
+            <option>Steel</option>
+            <option>Fairy</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="generation">Generation</label>
+          <select required class="form-control" id="generation" name="generation">
+            <option value="1">Generation 1</option>
+            <option value="2">Generation 2</option>
+            <option value="3">Generation 3</option>
+            <option value="4">Generation 4</option>
+            <option value="5">Generation 5</option>
+            <option value="6">Generation 6</option>
+            <option value="7">Generation 7</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Add the Pokémon</button>
+      </form>
+    </div>
+</body>
+</html>

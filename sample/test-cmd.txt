@@ -1,0 +1,5 @@
+cd C:\Users\user\OneDrive\201718_Spring\comp4021project2-new
+
+php -S localhost:80
+
+http://localhost/Assignment2/main.php
