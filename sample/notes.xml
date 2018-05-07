@@ -1,0 +1,27 @@
+ChineseName, telephone: optional
+	<staff>
+		<name>
+			<EnglishName></EnglishName>
+			<ChineseName></ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head></head>
+				<department></department>
+				<school></school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area></area>
+			<area></area>
+		</researchAreas>
+		<contact>
+			<telephone></telephone>
+			<email></email>
+			<homepage></homepage>
+		</contact>
+		<image></image>
+	</staff>
+	
+Typing: search name, research area
+Selecting: school, department

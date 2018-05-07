@@ -31,7 +31,14 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
-    <script>
+    
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	
+	
+	<script>
     $(document).ready(function(){
         $("#signout").on("click",function(){
             var username = getCookie("username");
@@ -103,7 +110,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
         });
     </script>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#" id="home">PROF-Profile</a>
+        <a class="navbar-brand" href="#" id="home"><img src = "images/hkust-logo.svg"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -146,9 +153,44 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
             <div class="col container" style=":90%">
                 <div class="row">
                     <div class="col p-3 text-center">
-                        <h4>Welcome to PROF-profile</h4>
+                        <h4>Welcome to HKUST Faculty Members' Profile</h4>
                     </div>
                 </div>
+				<div id = "myCarousel" class = "carousel slide" data-ride = "carousel">
+					<!-- Indicators -->
+					<ol class = "carousel-indicators">
+						<li data-target = "#myCarousel" data-slide-to = "0" class = "active"></li>
+						<li data-target = "#myCarousel" data-slide-to = "1"</li>
+						<li data-target = "#myCarousel" data-slide-to = "2"</li>
+					</ol>
+					<!-- Wrapper for slides -->
+					<div class = "carousel-inner">
+						<div class = "carousel-item active">
+							<img src = "images/sun.jpg" alt = "First slide">
+						</div>
+						<div class = "carousel-item">
+							<img src = "images/atrium.jpg" alt = "Second slide">
+						</div>
+						<div class = "carousel-item">
+							<img src = "images/sea.jpg" alt = "Third slide">
+						</div>
+					</div>
+					<!-- Left and right controls -->
+					<a class = "carousel-control-prev" href = "#myCarousel" role="button" data-slide = "prev">
+						<span class = "carousel-control-prev-icon"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class = "carousel-control-next" href = "#myCarousel" role="button" data-slide = "next">
+						<span class = "carousel-control-next-icon"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+				<style>
+				.carousel-inner img {
+					width: 100%;
+					height: 100%;
+				}
+				</style>
             </div>
         </div>
         <!--List--><!--form default all, side bar form, list profile, when click show detail by modal pagination+breadcomb change attribute by breadcomb and form data interchange-->
@@ -901,7 +943,9 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                         <h4>Adding a New Faculty Member</h4>
                     </div>
                 </div>
-				<form id = "addForm">
+				<hr>
+				<div class="container rounded bg-light">
+					<form id = "addForm" action = "addProf.php" method = "post" enctype="multipart/form-data">
 					<div class = "form-group">
 						<label for = "EnglishName">English Name</label>
 						<input required type = "text" class = "form-control" id = "add-EnglishName" name = "add-EnglishName" placeholder = "e.g. Wong Tai Sin Johnny">
@@ -927,7 +971,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 					<div class = "form-group">
 						<label for = "department">Department</label>
 						<select class="form-control" id="add-department" name="add-department"><!--hidden attribute use .attr("hidden",false/true); to toggle no need la fuck, a professor can belong to multiple school and multiple department -->
-                            <!--<option></option>-->
+                            <option></option>
                             <optgroup class="ssci" label="School of Science">
 								<option class="ssci">Division of Life Science</option>
 								<option class="ssci">Department of Chemistry</option>
@@ -971,7 +1015,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 						<label for = "area">Reasearch Area</label>
 						<div class = "multiple-area"><input required type = "text" class = "form-control" id = "add-area1" name = "area[]" placeholder = "e.g. Software Technologies"></div>
 					</div>
-					<button id = "add-area-btn" class = "btn btn-primary">Add one more area</button>
+					<button id = "add-area-btn" class = "btn btn-primary"><i class="fas fa-plus"></i> Add Area</button>
 					<script>
 						$(document).ready(function() {
 							var add_area_fields = 1;
@@ -981,7 +1025,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 							$(add_btn).on("click", function(e) {
 								e.preventDefault();
 								add_area_fields++;
-								var area = "<div class = \"multiple-area\"><input required type = \"text\" class = \"form-control\" id = \"add-area" + add_area_fields + "\" name = \"area[]\" placeholder = \"e.g. Software Technologies\"><a href=\"#\" class=\"remove_field\">Remove</a></div>";
+								var area = "<div class = \"multiple-area\"><input required type = \"text\" class = \"form-control\" id = \"add-area" + add_area_fields + "\" name = \"area[]\" placeholder = \"e.g. Software Technologies\"><a href=\"#\" class=\"remove_field\"><i class=\"fas fa-times\"></i> Remove</a></div>";
 								$(wrapper).append(area);
 							});
 							
@@ -993,13 +1037,20 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 					</script>
 					<style>
 						#add-area-btn {
-							margin: 0.5em;
+							margin-bottom: 0.5em;
 						}
 						.remove_field {
 							float: right;
 						}
 						.multiple-area {
-							margin: 0.5em;
+							margin-top: 0.5em;
+							margin-bottom: 0.5em;
+						}
+						.remove_field {
+							color: red;
+						}
+						#add-new-person {
+							text-align: center;
 						}
 					</style>
 					<div class = "form-group">
@@ -1016,11 +1067,20 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 					</div>
 					<div class = "form-group">
 						<label for = "image">Image</label>
-						<input required type = "text" class = "form-control" id = "add-image" name = "add-image" placeholder = "Place your image URL here">
+						<br>
+						<!--<input required type = "file" class = "form-control" id = "add-image" name = "add-image">-->
+						<label class="btn btn-info">
+							<input required type = "file" class = "form-control" id = "add-image" name = "add-image" style = "display:none;">
+							<i class="far fa-image"></i> Select Image
+						</label>
 					</div>
 				</form>
-				<button type = "submit" class = "btn btn-primary">Add Person</button>
-            </div>
+				</div>
+				<hr>
+				<div id = "add-new-person">
+					<button type = "submit" class = "btn btn-primary"><i class="fas fa-users"></i> Add Person</button>
+				<div>
+			</div>
         </div>
         <!--Edit--><!--form,preload data,back button to list can follow editprofile.php access by modal-->
         <div id="Edit"class="row" style="display:none">
