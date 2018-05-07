@@ -1085,7 +1085,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
     </div>
 </div>
         <!--Edit--><!--form,preload data,back button to list can follow editprofile.php access by modal-->
-                <div class="container rounded bg-white p-2">
+                 <div class="container rounded bg-white p-2">
                 <div class="row"></div>
                 <hr>
             <div class="row">
@@ -1166,6 +1166,14 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                             </div>
                             <hr>
                              <div class="row p-2">
+                                 <script>
+                                     $(document).ready( function(){
+                                        $("#back").on("click",function(){
+                                        window.location="main.php";
+                                        return false;
+                                    })
+                                   });      
+                                 </script>
                                 <div class="col text-center">
                                     <button id="back" class="btn btn-primary"><i class="fas fa-chevron-circle-left"></i> Back to main page!</button>
                                 </div>
@@ -1218,16 +1226,18 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                         </div>
                     </div>
         
-        
-        <!--edit -right side-->
+        <!-- edit-->
         <div id="Edit"class="row" style="display:none">
             <div class="col container" style=":90%">
+
                 <div class="row">
                     <div class="col p-3 text-center">
                         <h4>Edit record</h4>
                     </div>
                 </div>
-                                
+
+
+                        
                         <!--                            _____________________________________________-->
                         <div class="form-group"><!--English Name-->
                             <div class="form-group">
@@ -1265,22 +1275,117 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                                     <option id="sipo">Interdisciplinary Programs Office</option>
                                 </select>                       
                             </div>  
-                       </div>              
+                       </div> 
                 
+                        <!-- Department -->
+                        <div class = "form-group">
+						<label for = "department">Department</label>
+						<select class="form-control" id="edit-department" name="edit-department">
+                            <option></option>
+                            <optgroup class="ssci" label="School of Science">
+								<option class="ssci">Division of Life Science</option>
+								<option class="ssci">Department of Chemistry</option>
+								<option class="ssci">Department of Physics</option>
+								<option class="ssci">Department of Mathmatics</option>
+								<option class="ssci">Department of Ocean Science</option>
+							</optgroup>
+							<optgroup class="seng" label="School of Engineering">
+								<option class="seng">Department of Chemical and Biological Engineering</option>
+								<option class="seng">Department of Civil and Environmental Engineering</option>
+								<option class="seng">Department of Computer Science and Engineering</option>
+								<option class="seng">Department of Electronic and Computer Engineering</option>
+								<option class="seng">Department of Industrial Engineering and Decision Analysis</option>
+								<option class="seng">Department of Mechanical and Aerospace Engineering</option>
+								<option class="seng">Division of Integrative Systems and Design Engineering</option>
+							</optgroup>
+							<optgroup class="sbm" label="School of Business and Management">
+								<option class="sbm">Department of Accounting</option>
+								<option class="sbm">Department of Economics</option>
+								<option class="sbm">Department of Finance</option>
+								<option class="sbm">Department of Information Systems, Business Statistics and Operation Management</option>
+								<option class="sbm">Department of Management</option>
+								<option class="sbm">Department of Marketing</option>
+							</optgroup>
+							<optgroup class="hssu" label="School of Humanities and Social Science">
+								<option class="hssu">Division of Humanities</option>
+								<option class="hssu">Division of Social Science</option>
+							</optgroup>
+								<optgroup class="ipo" label="Interdisciplinary Programs Office">
+								<option class="ipo">Division of Environment and Sustainability</option>
+								<option class="ipo">Division of Public Policy</option>
+								<option class="ipo">Dual Degree Program in Technology and Management</option>
+								<option class="ipo">BSc in Risk Management and Business Intelligence Program</option>
+								<option class="ipo">BSc in Environmental Management and Technology Program</option>
+								<option class="ipo">BSc in Individualized Interdisciplinary Major Program (IIM)</option>
+								<option class="ipo">MPhil/PhD in Environmental Science, Policy and Management Program</option>
+                                <option class="ipo">MSc/PGD in Environmental Science and Management Program</option>
+							</optgroup>
+						</select>
+					</div>
                 
+                          <!-- Research Area________-->
+                          <div id = "edit-area-element" class = "form-group">
+                            <label for = "edit-area">Reasearch Area</label>
+                            <div class = "edit-multiple-area"><input required type = "text" class = "form-control" id = "edit-area1" name = "area[]" placeholder = "Reasearch Area"></div>
+                            </div>
+                            <button id = "edit-add-area-btn" class = "btn btn-primary"><i class="fas fa-plus"></i> Add Area</button>
                 
+                        <script>
+                                $(document).ready(function() {
+                                    var edit_add_area_fields = 1;
+                                    var edit_wrapper = $("#edit-area-element");
+                                    var edit_add_btn = $("#edit-add-area-btn");
+
+                                    $(edit_add_btn).on("click", function(e) {
+                                        e.preventDefault();
+                                        edit_add_area_fields++;
+                                        var edit_area = "<div class = \"edit-multiple-area\"><input required type = \"text\" class = \"form-control\" id = \"add-area" + edit_add_area_fields + "\" name = \"area[]\" placeholder = \"e.g. Software Technologies\"><a href=\"#\" class=\"edit-remove_field\"><i class=\"fas fa-times\"></i> Remove</a></div>";
+                                        $(edit_wrapper).append(edit_area);
+                                    });
+
+                                    $(edit_wrapper).on("click", ".edit-remove_field", function(e) {
+                                        e.preventDefault(); $(this).parent("div").remove();
+                                        edit_add_area_fields--;
+                                    });
+                                });
+                            </script>
+                            <style>
+                                #edit-add-area-btn {
+                                    margin-bottom: 0.5em;
+                                }
+                                .edit-remove_field {
+                                    float: right;
+                                }
+                                .edit-multiple-area {
+                                    margin-top: 0.5em;
+                                    margin-bottom: 0.5em;
+                                }
+                                .edit-remove_field {
+                                    color: red;
+                                }
+                            </style>
+
+                		<div class = "form-group"> <!--Telephone-->
+						  <label for = "telephone">Telephone</label>
+						  <input required type = "text" class = "form-control" id = "edit-telephone" name = "edit-telephone" placeholder = "Telephone">
+				        </div>
                 
+                        <div class = "form-group"> <!--Email-->
+                            <label for = "email">Email</label>
+                            <input required type = "text" class = "form-control" id = "edit-email" name = "edit-email" placeholder = "Email">
+                        </div>
                 
+                        <div class = "form-group"> <!--Personal Homepage-->
+                            <label for = "homepage">Personal Homepage</label>
+                            <input required type = "text" class = "form-control" id = "edit-homepage" name = "edit-homepage" placeholder = "Personal Homepage">
+                        </div>
                 
-                
-                
-                
-                
-                
-                
+
                 
             </div>
         </div>
+    </div>
+</div>
     <!--modal for detail-->
     <script>
         $(document).ready(function(){

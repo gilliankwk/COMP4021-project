@@ -321,7 +321,8 @@ if(isset($_SESSION["username"])){
                             </div>
                         </div>
                         <hr>
-                         <div class="row p-2">
+                         <div class="row p-2">                                
+ 
                             <div class="col text-center">
                                 <button id="back" class="btn btn-primary"><i class="fas fa-chevron-circle-left"></i> Back to main page!</button>
                             </div>
