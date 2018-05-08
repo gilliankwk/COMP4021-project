@@ -353,7 +353,9 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                 $("#school>:not(#ssbm)").attr("selected",false);
             }else if($("#school").val()=="School of Humanities and Social Science"){
                 $("#department>optgroup.hssu").attr("hidden",false);
-                $("#department>optgroup:not(.hssu)").attr("hidden",true);     
+                $("#department>optgroup:not(.hssu)").attr("hidden",true);
+                 $("#school>#shssu").attr("selected",true);
+                $("#school>:not(#shssu)").attr("selected",false);
             }else if($("#school").val()=="Interdisciplinary Programs Office"){
                 $("#department>optgroup.ipo").attr("hidden",false);
                 $("#department>optgroup:not(.ipo)").attr("hidden",true);
@@ -972,11 +974,6 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 								<optgroup class="ipo" label="Interdisciplinary Programs Office">
 								<option class="ipo">Division of Environment and Sustainability</option>
 								<option class="ipo">Division of Public Policy</option>
-								<option class="ipo">Dual Degree Program in Technology and Management</option>
-								<option class="ipo">BSc in Risk Management and Business Intelligence Program</option>
-								<option class="ipo">BSc in Environmental Management and Technology Program</option>
-								<option class="ipo">BSc in Individualized Interdisciplinary Major Program (IIM)</option>
-								<option class="ipo">MPhil/PhD in Environmental Science, Policy and Management Program, MSc / PGD in Environmental Science and Management Program</option>
 							</optgroup>
 						</select>
 					</div>
