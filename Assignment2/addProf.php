@@ -8,13 +8,21 @@ $xml = new DOMDocument();
 $xml->preserveWhiteSpace = false; // remove whitespace nodes 
 $xml->load("Prof.xml");
 
-// Retrieve the GET request values
+// Retrieve the POST request values
 $eName = $_POST["add-EnglishName"];
 $cName = $_POST["add-ChineseName"];	// optional
 $title = $_POST["add-head"];
 $dept = $_POST["add-department"];
 $sku = $_POST["add-school"];
-$area = $_POST["area"];
+
+$array = array();
+for($x = 0; $x < 10; $x++) {
+	if($_POST["add-area-".$x] != null) {
+		$area = $_POST["add-area-".$x];
+		$array_push($array, $area);
+	}
+}
+
 $tel = $_POST["add-telephone"];	// optional
 $mail = $_POST["add-email"];
 $page = $_POST["add-homepage"];
@@ -62,10 +70,10 @@ else {
 	$positions .= "</positions>";
 	
 	$researcharea = "<researchAreas>";
-	foreach($area as $node) {
-		if($node != null) {
-			$researcharea .= "<area>$node</area>";
-		}
+	foreach($array as $node) {
+		//if($node != null) {
+		$researcharea .= "<area>$node</area>";
+		//}
 	}
 	$researcharea .= "</researchAreas>";
 	
