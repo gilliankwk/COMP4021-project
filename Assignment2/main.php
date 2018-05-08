@@ -108,7 +108,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
         });
     </script>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#" id="home"><img src = "images/hkust-logo.svg"></a>
+        <a class="navbar-brand" href="#" id="home"><img src = "images/hkust-logo.svg" style="width:100px;height:30px;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -154,23 +154,24 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                         <h4>Welcome to HKUST Faculty Members' Profile</h4>
                     </div>
                 </div>
-				<div id = "myCarousel" class = "carousel slide" data-ride = "carousel">
+				 <div class="row mb-5" style="margin-left:auto;margin-right:auto;width:100%">
+				<div id = "myCarousel" class = "carousel slide text-center" data-ride = "carousel" style="margin-left:auto;margin-right:auto;">
 					<!-- Indicators -->
 					<ol class = "carousel-indicators">
 						<li data-target = "#myCarousel" data-slide-to = "0" class = "active"></li>
-						<li data-target = "#myCarousel" data-slide-to = "1"</li>
-						<li data-target = "#myCarousel" data-slide-to = "2"</li>
+						<li data-target = "#myCarousel" data-slide-to = "1"></li>
+						<li data-target = "#myCarousel" data-slide-to = "2"></li>
 					</ol>
 					<!-- Wrapper for slides -->
-					<div class = "carousel-inner">
-						<div class = "carousel-item active">
+					<div class = "carousel-inner text-center">
+						<div class = "rounded carousel-item active">
 							<img src = "images/sun.jpg" alt = "First slide">
 						</div>
-						<div class = "carousel-item">
+						<div class = "rounded carousel-item">
 							<img src = "images/atrium.jpg" alt = "Second slide">
 						</div>
-						<div class = "carousel-item">
-							<img src = "images/sea.jpg" alt = "Third slide">
+						<div class = "rounded carousel-item">
+							<img src = "images/sea.jpg" alt = "Third slide" >
 						</div>
 					</div>
 					<!-- Left and right controls -->
@@ -187,8 +188,10 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 				.carousel-inner img {
 					width: 100%;
 					height: 100%;
+                    overflow: hidden;
 				}
 				</style>
+                </div>
             </div>
         </div>
         <!--List--><!--form default all, side bar form, list profile, when click show detail by modal pagination+breadcomb change attribute by breadcomb and form data interchange-->
