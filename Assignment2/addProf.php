@@ -11,6 +11,7 @@ $xml->load("Prof.xml");
 // Retrieve the POST request values
 $eName = $_POST["add-EnglishName"];
 $cName = $_POST["add-ChineseName"];	// optional
+error_log(print_r($cName,true));
 $title = $_POST["add-head"];
 $dept = $_POST["add-department"];
 $sku = $_POST["add-school"];
@@ -19,7 +20,7 @@ $array = array();
 for($x = 0; $x < 10; $x++) {
 	if($_POST["add-area-".$x] != null) {
 		$area = $_POST["add-area-".$x];
-		$array_push($array, $area);
+		array_push($array, $area);
 	}
 }
 
@@ -27,14 +28,15 @@ $tel = $_POST["add-telephone"];	// optional
 $mail = $_POST["add-email"];
 $page = $_POST["add-homepage"];
 $img = $_FILES["add-image"];
+error_log(print_r($img["name"],true));
 
 function validateFields() {
-	global $xml, $names; 
+	global $xml, $names, $eName; 
 	
 	// Check if the name has been taken
     $names = $xml->getElementsByTagName("EnglishName");
     foreach ($names as $node) {
-        if ($node->nodeValue == trim($names)) {
+        if ($node->nodeValue == trim($eName)) {
             return "Name already exists!";
         }
     }
