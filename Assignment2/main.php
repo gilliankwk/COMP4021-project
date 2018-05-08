@@ -194,7 +194,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                 </div>
             </div>
         </div>
-        <!--List--><!--form default all, side bar form, list profile, when click show detail by modal pagination+breadcomb change attribute by breadcomb and form data interchange-->
+<!--vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv---List Page---vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv-->        <!--List--><!--form default all, side bar form, list profile, when click show detail by modal pagination+breadcomb change attribute by breadcomb and form data interchange-->
         <div id="List" class="row" style="display:none">
             <div class="col container bg-light rounded" style="width:90%">
                 <div class="row">
@@ -859,18 +859,23 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                 </div>
             </div>
         </div>
+<!--vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv---Add Page---vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv--> 
 		<script>
 			$(document).ready(function() {
-				$("#addForm").on("submit", function() {
+				$("#addForm").on("submit", function(e) {
+                    e.preventDefault;
 					console.log("submitting");
 					//prep area array
-					var areaarray;
+                    alert("sending0");
+					var fd=new FormData();
+                    alert("sending1");
+					var files=$("#add-image")[0].files[0];
+                    alert("sending2");
 					for(var i=0;i<$(".add-area").length;i++){
-						areaarray[$(".add-area").eq(i).attr("id")]=$(".add-area").eq(i).val();
+						fd.append($(".add-area").eq(i).attr("name"),$(".add-area").eq(i).val());
 					}
 					//prep file
-					var fd=new FormData();
-					var files=$("#add-image")[0].files[0];
+                    alert("sending3");
 					fd.append("file",files);
 					fd.append("add-EnglishName",$("#add-EnglishName").val());
 					fd.append("add-ChineseName",$("#add-ChineseName").val());
@@ -880,8 +885,8 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 					fd.append("add-telephone",$("#add-telephone").val());
 					fd.append("add-email",$("#add-email").val());
 					fd.append("add-homepage",$("#add-homepage").val());
-					fd.append("area",areaarray);
 					console.log(fd);
+                    alert("sending4");
 					//request
 				    $.ajax({
                         url: 'addProf.php',
@@ -977,7 +982,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 					</div>
 					<div id = "area-element" class = "form-group">
 						<label for = "area">Reasearch Area</label>
-						<div class = "multiple-area"><input required type = "text" class = "form-control" id = "add-area1" name = "area[]" placeholder = "e.g. Software Technologies"></div>
+						<div class = "multiple-area"><input required type = "text" class = "form-control add-area" id = "add-area-0" name = "add-area-0" placeholder = "e.g. Software Technologies"></div>
 					</div>
 					<button id = "add-area-btn" class = "btn btn-primary"><i class="fas fa-plus"></i> Add Area</button>
 					<script>
@@ -988,9 +993,13 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 							
 							$(add_btn).on("click", function(e) {
 								e.preventDefault();
-								add_area_fields++;
-								var area = "<div class = \"multiple-area\"><input required type = \"text\" class = \"form-control add-area\" id = \"add-area" + add_area_fields + "\" name = \"add-area"+add_area_fields+"\" placeholder = \"e.g. Software Technologies\"><a href=\"#\" class=\"remove_field\"><i class=\"fas fa-times\"></i> Remove</a></div>";
-								$(wrapper).append(area);
+                                if(add_area_fields<9){
+								    add_area_fields++;
+								    var area = "<div class = \"multiple-area\"><input required type = \"text\" class = \"form-control add-area\" id = \"add-area" + add_area_fields + "\" name = \"add-area-"+add_area_fields+"\" placeholder = \"e.g. Software Technologies\"><a href=\"#\" class=\"remove_field\"><i class=\"fas fa-times\"></i> Remove</a></div>";
+								    $(wrapper).append(area);
+                                }else{
+                                    alert("Max research area is 10");
+                                }
 							});
 							
 							$(wrapper).on("click", ".remove_field", function(e) {
@@ -1041,15 +1050,12 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 				</form>
 				</div>
 				<hr>
-				<script>
-				</script>
 				<div id = "add-new-person">
-					<button type = "submit" Form="addForm" class = "btn btn-primary id="addformaddbutton"><i class="fas fa-users"></i> Add Person</button>
-				<div>
+					<button type = "submit" Form="addForm" class = "btn btn-primary "id="addformaddbutton"><i class="fas fa-users"></i> Add Person</button>
+                </div>
 			</div>
         </div>
-    </div>
-</div>
+<!--vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv---Edit Page---vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv-->
         <!--Edit--><!--form,preload data,back button to list can follow editprofile.php access by modal-->
 			<div id="Edit"class="row" style="display:none">
 			 <div class="container rounded bg-white p-2">
@@ -1353,6 +1359,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
         </div>
     </div>
 </div>
+<!--vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv---Modal Page---vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv-->
     <!--modal for detail-->
     <script>
         $(document).ready(function(){

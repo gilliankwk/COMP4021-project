@@ -39,16 +39,6 @@
         "question": "Who is your favourite professor?",
         "answer": "Desmond"
     },
-    "thomas": {
-        "photo": "profile_pic\/thomas.png",
-        "username": "thomas",
-        "email": "thomas.94264898@gmail.com",
-        "firstname": "Thomas",
-        "lastname": "Wong",
-        "password": "twrw4l",
-        "question": "What will you do when you are boring?",
-        "answer": "gaming"
-    },
     "kiki": {
         "photo": "profile_pic\/kiki.png",
         "username": "kiki",
@@ -78,5 +68,15 @@
         "photo": "",
         "question": "Who is your favourite professor?",
         "answer": "King Chow"
+    },
+    "Thomas": {
+        "photo": "profile_pic\/Thomas.png",
+        "username": "Thomas",
+        "email": "thomas.94264898@gmail.com",
+        "firstname": "Thomas",
+        "lastname": "Wong",
+        "password": "1234567",
+        "question": "What is your first phone number?",
+        "answer": "94264898"
     }
 }
