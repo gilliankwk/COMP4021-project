@@ -883,25 +883,20 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 					fd.append("area",areaarray);
 					console.log(fd);
 					//request
-					var request=$.ajax({
-						url: "addProf.php",
-						type: "POST",
-						data:fd,
-						success:function(data){
-							console.log(data);
-							if(data.getElementsbyTagName("Error").length==0){//success
-								console.log("success");
-							}else{
-								alert(data.getElementsbyTagName("Error").innerHTML)
-							}
-							
-						}
-					});
-					request.fail(function(){
-						alert("Unknown Error");
-					})
+				    $.ajax({
+                        url: 'addProf.php',
+                        type: 'post',
+                        data: fd,
+                        contentType: false,
+                        processData: false,
+                        dataType: 'json',
+                        success: function(response){
+                            alert("success");
+                        }
+                     });
+                    return false;
 				})
-				return false;
+				
 			});
 		</script>
         <!--Add--><!--form,no load data, back button to list can follow editprofile.php access by Navbar-->
