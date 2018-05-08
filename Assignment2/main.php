@@ -859,6 +859,24 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                 </div>
             </div>
         </div>
+		<script>
+			$(document).ready(function() {
+				$("#addForm").on("submit", function() {
+					varr query = $("#addForm").serialize;
+					$.post("addProf.php", query, function(data) {
+						if($data).find("error").length) {
+							alert($(data).find("error").text());
+						}
+						else {
+							window.location.hash = "#List";
+						}
+					}).fail(function() {
+						alert("Unknown Error!");
+					});
+				}
+				return false;
+			});
+		</script>
         <!--Add--><!--form,no load data, back button to list can follow editprofile.php access by Navbar-->
         <div id="Add"class="row" style="display:none">
             <div class="col container" style=":90%">
