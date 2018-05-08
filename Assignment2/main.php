@@ -862,18 +862,45 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 		<script>
 			$(document).ready(function() {
 				$("#addForm").on("submit", function() {
-					varr query = $("#addForm").serialize;
-					$.post("addProf.php", query, function(data) {
-						if($data).find("error").length) {
-							alert($(data).find("error").text());
+					console.log("submitting");
+					//prep area array
+					var areaarray;
+					for(var i=0;i<$(".add-area").length;i++){
+						areaarray[$(".add-area").eq(i).attr("id")]=$(".add-area").eq(i).val();
+					}
+					//prep file
+					var fd=new FormData();
+					var files=$("#add-image")[0].files[0];
+					fd.append("file",files);
+					fd.append("add-EnglishName",$("#add-EnglishName").val());
+					fd.append("add-ChineseName",$("#add-ChineseName").val());
+					fd.append("add-head",$("#add-head").val());
+					fd.append("add-school",$("#add-school").val());
+					fd.append("add-department",$("#add-department").val());
+					fd.append("add-telephone",$("#add-telephone").val());
+					fd.append("add-email",$("#add-email").val());
+					fd.append("add-homepage",$("#add-homepage").val());
+					fd.append("area",areaarray);
+					console.log(fd);
+					//request
+					var request=$.ajax({
+						url: "addProf.php",
+						type: "POST",
+						data:fd,
+						success:function(data){
+							console.log(data);
+							if(data.getElementsbyTagName("Error").length==0){//success
+								console.log("success");
+							}else{
+								alert(data.getElementsbyTagName("Error").innerHTML)
+							}
+							
 						}
-						else {
-							window.location.hash = "#List";
-						}
-					}).fail(function() {
-						alert("Unknown Error!");
 					});
-				}
+					request.fail(function(){
+						alert("Unknown Error");
+					})
+				})
 				return false;
 			});
 		</script>
@@ -887,7 +914,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                 </div>
 				<hr>
 				<div class="container rounded bg-light">
-					<form id = "addForm" action = "addProf.php" method = "post" enctype="multipart/form-data">
+					<form id = "addForm">
 					<div class = "form-group">
 						<label for = "EnglishName">English Name</label>
 						<input required type = "text" class = "form-control" id = "add-EnglishName" name = "add-EnglishName" placeholder = "e.g. Wong Tai Sin Johnny">
@@ -967,7 +994,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 							$(add_btn).on("click", function(e) {
 								e.preventDefault();
 								add_area_fields++;
-								var area = "<div class = \"multiple-area\"><input required type = \"text\" class = \"form-control\" id = \"add-area" + add_area_fields + "\" name = \"area[]\" placeholder = \"e.g. Software Technologies\"><a href=\"#\" class=\"remove_field\"><i class=\"fas fa-times\"></i> Remove</a></div>";
+								var area = "<div class = \"multiple-area\"><input required type = \"text\" class = \"form-control add-area\" id = \"add-area" + add_area_fields + "\" name = \"add-area"+add_area_fields+"\" placeholder = \"e.g. Software Technologies\"><a href=\"#\" class=\"remove_field\"><i class=\"fas fa-times\"></i> Remove</a></div>";
 								$(wrapper).append(area);
 							});
 							
@@ -1019,8 +1046,10 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 				</form>
 				</div>
 				<hr>
+				<script>
+				</script>
 				<div id = "add-new-person">
-					<button type = "submit" class = "btn btn-primary"><i class="fas fa-users"></i> Add Person</button>
+					<button type = "submit" Form="addForm" class = "btn btn-primary id="addformaddbutton"><i class="fas fa-users"></i> Add Person</button>
 				<div>
 			</div>
         </div>
