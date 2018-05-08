@@ -582,83 +582,6 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                     data: {searchname:profname,searchresearch:"",school:"---all---",department:""},
                     success: function(data){
  //modal configure id=professor english name just use ajax to call the listProf.php
-                        /*
-                        <div class="modal fade" tabindex="-1" role="dialog" id="detailprof">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Name:<span id="spanengname" style="display:inline-block; margin-left:5%;"></span><span id="spanchinname"style="display:inline-block; margin-left:5%;"></span></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body text-center">
-                <img class="modal-photo" src="profile_pic/untitle.png" alt="sorry no available photo" style="width:256px;height:348px;"/>
-                
-                <hr>
-                <div class="modal-info container rounded bg-light p-4">
-                    <div class="row">
-                        <div class="col-md-3">
-                            Title:
-                        </div>
-                        <div class="col-md-9">
-                            <div id="modalposition" class="container text-center bg-white rounded p-2 m-1">
-                                <div class="row ml-2">
-                                    <div class="col-1">
-                                        -
-                                    </div>
-                                    <div class="col-11 text-left">
-                                        <span class="spantitle">Professor</span>,<span class="spandepartment">Example of Example</span>,<span class="spanschool">School of Example</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-3">
-                            Research Interest:
-                        </div>
-                        <div class="col-md-9">
-                            <div id="modalresearch" class="container text-center bg-white rounded p-2 m-1">
-                                <div class="row ml-2">
-                                    <span class="spanarea">Example</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-3">
-                            contact:
-                        </div>
-                        <div class="col-md-9">
-                            <div id="modalcontact" class="container text-center bg-white rounded p-2 m-1">
-                                <div class="row ml-2">
-                                    <div class="col-lg-2">Phone:</div>
-                                    <div class="col-lg-10 text-left"><span class="spanphone">12345678</span></div>
-                                </div>
-                                <div class="row ml-2">
-                                    <div class="col-lg-2">E-mail:</div>
-                                    <div class="col-lg-10 text-left"><span class="spanphone">Example@example.com</span></div>
-                                </div>
-                                <div class="row ml-2">
-                                    <div class="col-lg-2">Homepage:</div>
-                                    <div class="col-lg-10 text-left"><span class="spanphone">Example.com</span></div>                               
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="modal-edit">Edit-Record</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" id="modal-delete">Delete Record</button>
-            </div>
-        </div>
-    </div>
-</div>
-                        */
                     //image
                         var node=$(data).find("staff").eq(0);
                         if(node.find("image").text()!=""){
@@ -1085,7 +1008,8 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
     </div>
 </div>
         <!--Edit--><!--form,preload data,back button to list can follow editprofile.php access by modal-->
-                 <div class="container rounded bg-white p-2">
+			<div id="Edit"class="row" style="display:none">
+			 <div class="container rounded bg-white p-2">
                 <div class="row"></div>
                 <hr>
             <div class="row">
@@ -1227,7 +1151,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                     </div>
         
         <!-- edit-->
-        <div id="Edit"class="row" style="display:none">
+        
             <div class="col container" style=":90%">
 
                 <div class="row">
