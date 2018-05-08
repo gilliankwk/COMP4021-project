@@ -990,7 +990,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 							
 							$(add_btn).on("click", function(e) {
 								e.preventDefault();
-                                if(add_area_fields<9){
+                                if(add_area_fields<=9){
 								    add_area_fields++;
 								    var area = "<div class = \"multiple-area\"><input required type = \"text\" class = \"form-control add-area\" id = \"add-area" + add_area_fields + "\" name = \"add-area-"+add_area_fields+"\" placeholder = \"e.g. Software Technologies\"><a href=\"#\" class=\"remove_field\"><i class=\"fas fa-times\"></i> Remove</a></div>";
 								    $(wrapper).append(area);
@@ -1025,7 +1025,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 					</style>
 					<div class = "form-group">
 						<label for = "telephone">Telephone</label>
-						<input required type = "text" class = "form-control" id = "add-telephone" name = "add-telephone" placeholder = "(optional) e.g. (852) 1234 5678">
+						<input type = "text" class = "form-control" id = "add-telephone" name = "add-telephone" placeholder = "(optional) e.g. (852) 1234 5678">
 					</div>
 					<div class = "form-group">
 						<label for = "email">Email</label>
@@ -1040,9 +1040,33 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 						<br>
 						<!--<input required type = "file" class = "form-control" id = "add-image" name = "add-image">-->
 						<label class="btn btn-info">
-							<input required type = "file" class = "form-control" id = "add-image" name = "add-image" style = "display:none;">
+							<input required type = "file" class = "form-control" id = "add-image" name = "add-image" style = "display:none;" onchange = "readURL(this)">
 							<i class="far fa-image"></i> Select Image
 						</label>
+						<br>
+						<div id = "preview-area" style = "display: none; border: 0.5px dashed gray; border-radius: 5px; width: 200px; height: 250px;">
+							<div style = "text-align: center;">
+								<label style = "text-decoration: underline;">Preview</label>
+								<img id = "preview" src = "#" alt = "your image">
+							</div>
+						</div>
+						<script>
+							function readURL(input) {
+								if (input.files && input.files[0]) {
+									var reader = new FileReader();
+
+									reader.onload = function (e) {
+										$("#preview")
+											.attr("src", e.target.result)
+											.width(150)
+											.height(200);
+									};
+
+									reader.readAsDataURL(input.files[0]);
+									$("#preview-area").show();
+								}
+							}
+						</script>
 					</div>
 				</form>
 				</div>
