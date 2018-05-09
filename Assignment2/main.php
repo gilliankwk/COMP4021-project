@@ -1177,10 +1177,11 @@ var edit_prof_original_name="";
 							<i class="far fa-image"></i> Select Image
 						</label>
 						<br>
-						<div id = "preview-area" style = "display: none; border: 0.5px dashed gray; border-radius: 5px; width: 200px; height: 250px;">
+						<div id = "preview-area" style = "display: none; border: 0.5px dashed gray; border-radius: 5px; width: 50vh; height: 50vh;">
 							<div style = "text-align: center;">
 								<label style = "text-decoration: underline;">Preview</label>
-								<img id = "preview" src = "#" alt = "your image">
+								<br>
+								<img id = "preview" src = "#" alt = "your image" style = "width: 80%; height: 80%; max-width: 40vh; max-height: 40vh;">
 							</div>
 						</div>
 						<script>
@@ -1190,8 +1191,8 @@ var edit_prof_original_name="";
 									reader.onload = function (e) {
 										$("#preview")
 											.attr("src", e.target.result)
-											.width(150)
-											.height(200);
+											//.width(150)
+											//.height(200);
 									};
 									reader.readAsDataURL(input.files[0]);
 									$("#preview-area").show();
