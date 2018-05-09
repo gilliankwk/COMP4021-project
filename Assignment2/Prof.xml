@@ -306,4 +306,358 @@ Every field 2 professor, composite field no double count-->
 		</contact>
 		<image>data-pic/mksonglin.jpg</image>
 	</staff>
+    <staff>
+		<name>
+			<EnglishName>Cai, Yong Shun</EnglishName>
+			<ChineseName>蔡永順</ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Chair Professor</head>
+				<department>Division of Social Science</department>
+				<school>School of Humanities and Social Science</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Social movements</area>
+			<area>Institution building and regime transition</area>
+			<area>Chinese domestic politics</area>
+		</researchAreas>
+		<contact>
+			<telephone>(852) 2358 7823</telephone>
+			<email>socai@ust.hk  </email>
+			<homepage></homepage>
+		</contact>
+		<image>data-pic/socai.jpg</image>
+	</staff>
+    <staff>
+		<name>
+			<EnglishName>Chan, Charles W H</EnglishName>
+			<ChineseName>陳榮開</ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Associate Professor</head>
+				<department>Division of Humanities</department>
+				<school>School of Humanities and Social Science</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Chinese philosophy</area>
+			<area>Comparative Chinese and Japanese thought and culture</area>
+			<area>Confucianism</area>
+			<area>Religious studies</area>
+			<area>Tokugawa Japanese Confucianism</area>
+		</researchAreas>
+		<contact>
+			<telephone>(852) 2358 7765</telephone>
+			<email>hmwhchan@ust.hk</email>
+			<homepage></homepage>
+		</contact>
+		<image>data-pic/hmwhchan.jpg</image>
+	</staff>
+    <staff>
+		<name>
+			<EnglishName>Wang, Michael Yu</EnglishName>
+			<ChineseName>王煜</ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Professor</head>
+				<department>Department of Mechanical and Aerospace Engineering</department>
+				<school>School of Engineering</school>
+			</position>
+            <position>
+				<head>Professor</head>
+				<department>Department of Electronics and Computer Engineering</department>
+				<school>School of Engineering</school>
+			</position>
+            <position>
+				<head>Director</head>
+				<department>Robotic Institude</department>
+				<school></school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Robotics</area>
+			<area>Artificial Intelligence</area>
+			<area>Multidisciplinary design and optimization</area>
+			<area>Control and robotic systems</area>
+		</researchAreas>
+		<contact>
+			<telephone>(852) 3469 2544</telephone>
+			<email>mywang@ust.hk</email>
+			<homepage>http://ragroup.ust.hk/</homepage>
+		</contact>
+		<image>data-pic/mywang.jpg</image>
+	</staff>
+    <staff>
+		<name>
+			<EnglishName>Katafygiotis, Lambros</EnglishName>
+			<ChineseName>簡達福</ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Professor</head>
+				<department>Department of Civil and Environmental Engineering</department>
+				<school>School of Engineering</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Structural dynamics</area>
+			<area>System identification</area>
+			<area>Structural modelling</area>
+			<area>Structural assessments</area>
+			<area>Earthquake engineering</area>
+		</researchAreas>
+		<contact>
+			<telephone>(852) 2358 8750</telephone>
+			<email>lambros@ust.hk</email>
+			<homepage></homepage>
+		</contact>
+		<image>data-pic/lambros.jpg</image>
+	</staff>
+    <staff>
+		<name>
+			<EnglishName>Qi, Qi</EnglishName>
+			<ChineseName>祁琦</ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Assistant Professor</head>
+				<department>Department of Industrial Engineering and Decision Analysis</department>
+				<school>School of Engineering</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Game Theory</area>
+			<area>Operations-marketing interface</area>
+			<area>Operations research</area>
+			<area>Auction and mechanism design</area>
+			<area>Revenue and social welfare optimization</area>
+            <area>Algorithms; Internet economics; Sharing economy</area>
+		</researchAreas>
+		<contact>
+			<telephone>(852) 2358 7115</telephone>
+			<email>kaylaqi@ust.hk</email>
+			<homepage></homepage>
+		</contact>
+		<image>data-pic/kaylaqi.jpg</image>
+	</staff>
+    <staff>
+		<name>
+			<EnglishName>Yuan, Jie</EnglishName>
+			<ChineseName>袁杰</ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Assistant Professor</head>
+				<department>Department of Electronic and Computer Engineering</department>
+				<school>School of Engineering</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Mixed-signal/analog integrated circuit (IC)</area>
+			<area>Complementary metal-oxide-semiconductor (CMOS)</area>
+			<area>Sensors</area>
+			<area>Data converters</area>
+			<area>Wearable/implantable electronics</area>
+		</researchAreas>
+		<contact>
+			<telephone>(852) 2358 8029</telephone>
+			<email>eeyuan@ust.hk</email>
+			<homepage></homepage>
+		</contact>
+		<image>data-pic/eeyuan.jpg</image>
+	</staff>
+    <staff>
+		<name>
+			<EnglishName>Huang, Pingbo</EnglishName>
+			<ChineseName>黃平波</ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Associated Professor</head>
+				<department>Division of Life Science</department>
+				<school>School of Science</school>
+			</position>
+            <position>
+				<head>Associated Professor</head>
+				<department>Department of Chemical and Biological Engineering</department>
+				<school>School of Engineering</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Sensory neurobiology</area>
+			<area>Mechanotransduction of hair cells</area>
+			<area>Hearing</area>
+			<area>Ion channels</area>
+			<area>Molecular mechanobiology</area>
+		</researchAreas>
+		<contact>
+			<telephone>(852) 2358 7305</telephone>
+			<email>bohuangp@ust.hk </email>
+			<homepage>http://life-sci.ust.hk/faculty/Dr.P.Huang/index.html</homepage>
+		</contact>
+		<image>data-pic/bohuangp.jpg</image>
+	</staff>
+    <staff>
+		<name>
+			<EnglishName>Lam, Gibson</EnglishName>
+			<ChineseName>林傑遜</ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Lecturer</head>
+				<department>Department of Computer Science and Engineering</department>
+				<school>School of Engineering</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Web services</area>
+			<area>Multimedia technology</area>
+			<area>Internet technology</area>
+			<area>IT in Education</area>
+			<area>Computer graphics</area>
+		</researchAreas>
+		<contact>
+			<telephone>(852) 2358 6984</telephone>
+			<email>gibson@ust.hk</email>
+			<homepage>http://www.cse.ust.hk/~gibson/</homepage>
+		</contact>
+		<image>data-pic/gibson.jpg</image>
+	</staff>
+    <staff>
+		<name>
+			<EnglishName>Jia, Guochen</EnglishName>
+			<ChineseName>賈國成</ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Chair Professor</head>
+				<department>Department of Chemistry</department>
+				<school>School of Science</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Homogeneous catalysis</area>
+			<area>Inorganic Chemistry</area>
+			<area>Organic Chemistry</area>
+			<area>Organometallic Chemistry</area>
+			<area>Organometallic synthesis</area>
+		</researchAreas>
+		<contact>
+			<telephone>(852) 2358 7361</telephone>
+			<email>chjiag@ust.hk </email>
+			<homepage></homepage>
+		</contact>
+		<image>data-pic/chjiag.jpg</image>
+	</staff>
+    <staff>
+		<name>
+			<EnglishName>Bao, Zhigang</EnglishName>
+			<ChineseName>鮑志剛</ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Assistant Professor</head>
+				<department>Department of Mathematics</department>
+				<school>School of Science</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Random matrics</area>
+			<area>Probability</area>
+			<area>High-dimensional statistics</area>
+			<area>Statistical physics</area>
+			<area>Mathematical physics</area>
+		</researchAreas>
+		<contact>
+			<telephone>(852) 2358 7700</telephone>
+			<email>mazgbao@ust.hk</email>
+			<homepage></homepage>
+		</contact>
+		<image>data-pic/mazgbao.jpg</image>
+	</staff>
+    <staff>
+		<name>
+			<EnglishName>Park, Hyo Keun</EnglishName>
+			<ChineseName>朴孝根</ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Assistant Professor</head>
+				<department>Division of Life Science</department>
+				<school>School of Science</school>
+			</position>
+            <position>
+				<head>Assistant Professor</head>
+				<department>Department of Physics</department>
+				<school>School of Science</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Neuroscience</area>
+			<area>Biophysics</area>
+			<area>Imaging techniques</area>
+		</researchAreas>
+		<contact>
+			<telephone>(852) 2358 7322</telephone>
+			<email>hkpark@ust.hk</email>
+			<homepage></homepage>
+		</contact>
+		<image>data-pic/hkpark.jpg</image>
+	</staff>
+    <staff>
+		<name>
+			<EnglishName>Chan, Kit Yu Karen</EnglishName>
+			<ChineseName>陳潔瑜</ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Assistant Professor</head>
+				<department>Division of Life Science</department>
+				<school>School of Science</school>
+			</position>
+            <position>
+				<head>Assistant Professor</head>
+				<department>Department of Ocean Science</department>
+				<school>School of Science</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Ocean Science</area>
+			<area>Marine ecology</area>
+			<area>Larval ecology</area>
+			<area>Global climate change</area>
+		</researchAreas>
+		<contact>
+			<telephone>(852) 2358 7998</telephone>
+			<email>karenchan@ust.hk</email>
+			<homepage>http://www.chanlab.ust.hk</homepage>
+		</contact>
+		<image>data-pic/karenchan.jpg</image>
+	</staff>
+    <staff>
+		<name>
+			<EnglishName>Chung, Kenny K K</EnglishName>
+			<ChineseName>鍾家健</ChineseName>
+		</name>
+		<positions>
+			<position>
+				<head>Associate Professor</head>
+				<department>Division of Life Science</department>
+				<school>School of Science</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Molecular mechanisms of neurodegeneration</area>
+		</researchAreas>
+		<contact>
+			<telephone>(852) 2358 8019 </telephone>
+			<email>bckchung@ust.hk   </email>
+			<homepage>http://life-sci.ust.hk/faculty/Dr.K.Chung/index.html</homepage>
+		</contact>
+		<image>data-pic/bckchung.jpg</image>
+	</staff>
 </staffs>

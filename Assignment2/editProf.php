@@ -7,6 +7,7 @@ $xml->preserveWhiteSpace = true; // remove whitespace nodes
 $xml->load("Prof.xml");
 
 // Retrieve the GET request values
+$oName = trim($_POST["edit-originalName"])
 $eName = trim($_POST["edit-add-EnglishName"]);
 $cName = trim($_POST["edit-add-ChineseName"]);	// optional
 $tel = $_POST["edit-add-telephone"];	// optional
@@ -26,7 +27,7 @@ for($i=0;$i<5;$i++){
         $title[$i]=$_POST["edit-add-head-".$i];
     }
     if(isset($_POST["edit-add-department-".$i])){
-        $dept[$i]=$_POST["add-department-".$i];
+        $dept[$i]=$_POST["edit-add-department-".$i];
     }
     if(isset($_POST["edit-add-school-".$i])){
         $sku[$i]=$_POST["edit-add-school-".$i];
@@ -37,8 +38,10 @@ function validateFields() {
 	global $xml, $names,$eName; 
 	// Check if the name has been taken
     $names = $xml->getElementsByTagName("EnglishName");
+    if($oName==$eName){
+        return null;
+    }
     foreach ($names as $node) {
-        if ($node->nodeValue == )
         if ($node->nodeValue == $eName) {
             return "Name already exists!";
         }
@@ -56,6 +59,15 @@ if($error != null) {
     $output["success"]="not success";
     echo json_encode($output);
 }else {
+        $specialnode;
+        foreach($xml->getElementsByTagName("staffs") as $node){
+            if($node->childNodes->item(0)->childNodes->item(0)->nodeValue==$eName){
+                $specialnode=$node;
+            }
+        }
+        $specialimage=$specialnode->item(4)->nodeValue;
+    
+    //if name did change, if image does not change need conserve
 	$target = $xml->getElementsByTagName("staffs")->item(0);
 	// Add new prof
 	$staff = $xml->createDocumentFragment();
@@ -87,12 +99,12 @@ if($error != null) {
     }
     $contactnode.="</homepage>";
     //image
+     $status="";
     if(isset($_FILES['file']['name'])){
         $filename = $_FILES['file']['name'];
         error_log(print_r("file uploaded",true));
     }else{
         $status="error";
-        $info="file upload error";
         error_log(print_r("file was not uploaded",true));
     }
 /* Getting File size */
@@ -101,7 +113,6 @@ if($error != null) {
         error_log(print_r("file uploaded",true));
     }else{
         $status="error";
-        $info="file upload error";
         error_log(print_r("file was not uploaded",true));
     }
     $src = "data-pic/".$eName.".jpg";
@@ -118,18 +129,20 @@ if($error != null) {
             
         }else{
             $status="error";
-            $info="file type error";
         }
     
     }else{
+         $status="error";
         error_log(print_r("file was not uploaded",true));
     }
     //wrap all up
-    error_log(print_r($namenode,true));
-    error_log(print_r($posnode,true));
-    error_log(print_r($areanode,true));
-    $staff->appendXML("<staff><name>$namenode</name><positions>$posnode</positions><researchAreas>$areanode</researchAreas><contact>$contactnode</contact><image>$src</image></staff>");
-	$target->appendChild($staff);
+    //if status==error=no image->use original else use others
+    if($status=="error"){
+        
+    }else{
+        $staff->appendXML("<staff><name>$namenode</name><positions>$posnode</positions><researchAreas>$areanode</researchAreas><contact>$contactnode</contact><image>$src</image></staff>");
+	   $target->appendChild($staff);   
+    }
     //file
     
 	$xml->save("Prof.xml");

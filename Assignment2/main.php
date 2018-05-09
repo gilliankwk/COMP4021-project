@@ -37,6 +37,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 	
 	
 	<script>
+var edit_prof_original_name="";
     $(document).ready(function(){
         $("#signout").on("click",function(){
             var username = getCookie("username");
@@ -86,23 +87,70 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                 $("#Add").hide();
                 $("#List").show();
                 $("#Edit").hide();
+                $("#school").trigger("change");
+                
             $("#home").on("click",function(){
                 $("#Home").show();
                 $("#Add").hide();
                 $("#List").hide();
                 $("#Edit").hide();
+                $("#edit-editForm")[0].reset();
+                for(var i=edit_add_pos_fields;edit_add_pos_fields>0;i--){
+                    $("#edit-remove_pos_field").trigger("click");   
+                }
+                for(var i=edit_add_area_fields;edit_add_area_fields>0;i--){
+                    $("#edit-remove_area_field").trigger("click"); 
+                }
+                $("#addForm")[0].reset();
+                for(var i=add_pos_fields;add_pos_fields>0;i--){
+                    $("#remove_pos_field").trigger("click");   
+                }
+                for(var i=add_area_fields;add_area_fields>0;i--){
+                    $("#remove_area_field").trigger("click");   
+                }
+                edit_prof_original_name="";
             });
             $("#list").on("click",function(){
                 $("#Home").hide();
                 $("#Add").hide();
                 $("#List").show();
                 $("#Edit").hide();
+                $("#edit-editForm")[0].reset();
+                for(var i=edit_add_pos_fields;edit_add_pos_fields>0;i--){
+                    $("#edit-remove_pos_field").trigger("click");   
+                }
+                for(var i=edit_add_area_fields;edit_add_area_fields>0;i--){
+                    $("#edit-remove_area_field").trigger("click"); 
+                }
+                $("#addForm")[0].reset();
+                for(var i=add_pos_fields;add_pos_fields>0;i--){
+                    $("#remove_pos_field").trigger("click");   
+                }
+                for(var i=add_area_fields;add_area_fields>0;i--){
+                    $("#remove_area_field").trigger("click");   
+                }
+                edit_prof_original_name="";
             });
             $("#add").on("click",function(){
                 $("#Home").hide();
                 $("#Add").show();
                 $("#List").hide();
                 $("#Edit").hide();
+                $("#edit-editForm")[0].reset();
+                for(var i=edit_add_pos_fields;add_pos_fields>0;i--){
+                    $("#edit-remove_pos_field").trigger("click");   
+                }
+                for(var i=edit_add_area_fields;add_area_fields>0;i--){
+                    $("#edit-remove_area_field").trigger("click"); 
+                }
+                $("#addForm")[0].reset();
+                for(var i=add_pos_fields;add_pos_fields>0;i--){
+                    $("#remove_pos_field").trigger("click");   
+                }
+                for(var i=add_area_fields;add_area_fields>0;i--){
+                    $("#remove_area_field").trigger("click");   
+                }
+                edit_prof_original_name="";
             });
             
         });
@@ -194,7 +242,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                 </div>
             </div>
         </div>
-        <!--List--><!--form default all, side bar form, list profile, when click show detail by modal pagination+breadcomb change attribute by breadcomb and form data interchange-->
+<!--vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv---List Page---vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv-->        <!--List--><!--form default all, side bar form, list profile, when click show detail by modal pagination+breadcomb change attribute by breadcomb and form data interchange-->
         <div id="List" class="row" style="display:none">
             <div class="col container bg-light rounded" style="width:90%">
                 <div class="row">
@@ -353,7 +401,9 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                 $("#school>:not(#ssbm)").attr("selected",false);
             }else if($("#school").val()=="School of Humanities and Social Science"){
                 $("#department>optgroup.hssu").attr("hidden",false);
-                $("#department>optgroup:not(.hssu)").attr("hidden",true);     
+                $("#department>optgroup:not(.hssu)").attr("hidden",true);
+                 $("#school>#shssu").attr("selected",true);
+                $("#school>:not(#shssu)").attr("selected",false);
             }else if($("#school").val()=="Interdisciplinary Programs Office"){
                 $("#department>optgroup.ipo").attr("hidden",false);
                 $("#department>optgroup:not(.ipo)").attr("hidden",true);
@@ -859,18 +909,28 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                 </div>
             </div>
         </div>
+<!--vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv---Add Page---vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv--> 
 		<script>
 			$(document).ready(function() {
-				$("#addForm").on("submit", function() {
+				$("#addForm").on("submit", function(e) {
+                    e.preventDefault;
 					console.log("submitting");
 					//prep area array
-					var areaarray;
+                    
+					var fd=new FormData();
+                    
+					var files=$("#add-image")[0].files[0];
+                   
 					for(var i=0;i<$(".add-area").length;i++){
-						areaarray[$(".add-area").eq(i).attr("id")]=$(".add-area").eq(i).val();
+						fd.append($(".add-area").eq(i).attr("name"),$(".add-area").eq(i).val());
+					}
+                    for(var i=0;i<$(".multiple-pos").length;i++){
+						fd.append($(".multiple-pos").eq(i).find(".addpos1").attr("name"),$(".multiple-pos").eq(i).find(".addpos1").val());
+                        fd.append($(".multiple-pos").eq(i).find(".addpos2").attr("name"),$(".multiple-pos").eq(i).find(".addpos2").val());
+                        fd.append($(".multiple-pos").eq(i).find(".addpos3").attr("name"),$(".multiple-pos").eq(i).find(".addpos3").val());
 					}
 					//prep file
-					var fd=new FormData();
-					var files=$("#add-image")[0].files[0];
+                    
 					fd.append("file",files);
 					fd.append("add-EnglishName",$("#add-EnglishName").val());
 					fd.append("add-ChineseName",$("#add-ChineseName").val());
@@ -880,8 +940,8 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 					fd.append("add-telephone",$("#add-telephone").val());
 					fd.append("add-email",$("#add-email").val());
 					fd.append("add-homepage",$("#add-homepage").val());
-					fd.append("area",areaarray);
 					console.log(fd);
+                   
 					//request
 				    $.ajax({
                         url: 'addProf.php',
@@ -890,10 +950,33 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                         contentType: false,
                         processData: false,
                         dataType: 'json',
-                        success: function(response){
-                            alert("success");
+                        success: function(data){
+                            console.log(data);
+                            if(data.success!="success"){
+                                alert("Error"+data.success);
+                            }else{
+                                alert("success");
+                                $("#Home").hide();
+                                $("#Add").hide();
+                                $("#List").show();
+                                $("#Edit").hide();
+                                $("#school").trigger("change");
+                                $("#addForm")[0].reset();
+                                for(var i=add_pos_fields;add_pos_fields!=0;i--){
+                                    $("#remove_pos_field").trigger("click");   
+                                }
+                                for(var i=add_area_fields;add_area_fields!=0;i--){
+                                    $("#remove_area_field").trigger("click");   
+                                }
+                            }
                         }
-                     });
+                     })
+                    .done(function(){
+                        alert("done")
+                    })
+                    .fail(function(){
+                        alert("fail");
+                    });
                     return false;
 				})
 				
@@ -918,13 +1001,60 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 						<label for = "ChineseName">Chinese Name</label>
 						<input type = "text" class = "form-control" id = "add-ChineseName" name = "add-ChineseName" placeholder = "(optional) ">
 					</div>
+                        <!-------------------------------------------------------------->
+                        <script>
+						$(document).ready(function() {
+                            add_pos_fields = 0;
+							var wrapper = $("#pos-element");
+							var add_btn = $("#add-pos-btn");
+							
+							$(add_btn).on("click", function(e) {
+								e.preventDefault();
+                                if(add_pos_fields<5){
+								    add_pos_fields++;
+								    var area = '<div class="multiple-pos"><hr><div class = "form-group"><label for = "head">Title</label><input required type = "text" class = "form-control addpos1" id = "add-head-'+add_pos_fields+'" name = "add-head-'+add_pos_fields+'" placeholder = "e.g. Associate Professor"></div><div class = "form-group"><label for = "school">School</label><select class = "form-control addpos2" id = "add-school-'+add_pos_fields+'" name = "add-school-'+add_pos_fields+'"><option id="sssci">School of Science</option><option id="sseng">School of Engineering</option><option id="ssbm">School of Business and Management</option><option id="shssu">School of Humanities and Social Science</option><option id="sipo">Interdisciplinary Programs Office</option></select></div><div class = "form-group"><label for = "department">Department</label><select class="form-control addpos3" id="add-department-'+add_pos_fields+'" name="add-department-'+add_pos_fields+'"><option></option><optgroup class="ssci" label="School of Science"><option class="ssci">Division of Life Science</option><option class="ssci">Department of Chemistry</option><option class="ssci">Department of Physics</option><option class="ssci">Department of Mathmatics</option><option class="ssci">Department of Ocean Science</option></optgroup><optgroup class="seng" label="School of Engineering"><option class="seng">Department of Chemical and Biological Engineering</option><option class="seng">Department of Civil and Environmental Engineering</option><option class="seng">Department of Computer Science and Engineering</option><option class="seng">Department of Electronic and Computer Engineering</option><option class="seng">Department of Industrial Engineering and Decision Analysis</option><option class="seng">Department of Mechanical and Aerospace Engineering</option><option class="seng">Division of Integrative Systems and Design Engineering</option></optgroup><optgroup class="sbm" label="School of Business and Management"><option class="sbm">Department of Accounting</option><option class="sbm">Department of Economics</option><option class="sbm">Department of Finance</option><option class="sbm">Department of Information Systems, Business Statistics and Operation Management</option><option class="sbm">Department of Management</option><option class="sbm">Department of Marketing</option></optgroup><optgroup class="hssu" label="School of Humanities and Social Science"><option class="hssu">Division of Humanities</option><option class="hssu">Division of Social Science</option></optgroup><optgroup class="ipo" label="Interdisciplinary Programs Office"><option class="ipo">Division of Environment and Sustainability</option><option class="ipo">Division of Public Policy</option></optgroup></select></div></div></div>'
+								    $(wrapper).append(area);
+                                    $("#remove_pos_field").show();
+                                }else{
+                                    alert("Max research area is 5");
+                                }
+							});
+							
+							$("#remove_pos_field").on("click", function(e) {
+								e.preventDefault(); 
+                                if(add_pos_fields==1){
+                                    $("#remove_pos_field").hide();
+                                }
+                                $("#pos-element").children().last().remove();
+								add_pos_fields--;
+							});
+						});
+					</script>
+					<style>
+						#add-pos-btn {
+							margin-bottom: 0.5em;
+						}
+						.remove_field {
+							float: right;
+                            color: red;
+						}
+						.multiple-pos {
+							margin-top: 0.5em;
+							margin-bottom: 0.5em;
+						}
+						#add-new-person {
+							text-align: center;
+						}
+					</style>
+                <div id="pos-element" class="form-group">
+                    <div class="multiple-pos">
 					<div class = "form-group">
 						<label for = "head">Title</label>
-						<input required type = "text" class = "form-control" id = "add-head" name = "add-head" placeholder = "e.g. Associate Professor">
+						<input required type = "text" class = "form-control addpos1" id = "add-head-0" name = "add-head-0" placeholder = "e.g. Associate Professor">
 					</div>
 					<div class = "form-group">
 						<label for = "school">School</label>
-						<select class = "form-control" id = "add-school" name = "add-school">
+						<select class = "form-control addpos2" id = "add-school-0" name = "add-school-0">
 							<option id="sssci">School of Science</option>
                             <option id="sseng">School of Engineering</option>
                             <option id="ssbm">School of Business and Management</option>
@@ -934,7 +1064,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 					</div>
 					<div class = "form-group">
 						<label for = "department">Department</label>
-						<select class="form-control" id="add-department" name="add-department"><!--hidden attribute use .attr("hidden",false/true); to toggle no need la fuck, a professor can belong to multiple school and multiple department -->
+						<select class="form-control addpos3" id="add-department-0" name="add-department-0"><!--hidden attribute use .attr("hidden",false/true); to toggle no need la fuck, a professor can belong to multiple school and multiple department -->
                             <option></option>
                             <optgroup class="ssci" label="School of Science">
 								<option class="ssci">Division of Life Science</option>
@@ -967,34 +1097,47 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 								<optgroup class="ipo" label="Interdisciplinary Programs Office">
 								<option class="ipo">Division of Environment and Sustainability</option>
 								<option class="ipo">Division of Public Policy</option>
-								<option class="ipo">Dual Degree Program in Technology and Management</option>
-								<option class="ipo">BSc in Risk Management and Business Intelligence Program</option>
-								<option class="ipo">BSc in Environmental Management and Technology Program</option>
-								<option class="ipo">BSc in Individualized Interdisciplinary Major Program (IIM)</option>
-								<option class="ipo">MPhil/PhD in Environmental Science, Policy and Management Program, MSc / PGD in Environmental Science and Management Program</option>
 							</optgroup>
 						</select>
 					</div>
+                    </div>
+                </div>
+                        <a href="#" class="remove_field" id="remove_pos_field" style="display:none"><i class="fas fa-times"></i> Remove</a>
+                        <button id = "add-pos-btn" class = "btn btn-primary"><i class="fas fa-plus"></i> Add Position</button>
+                        <!-------------------------------------------------------------->
 					<div id = "area-element" class = "form-group">
 						<label for = "area">Reasearch Area</label>
-						<div class = "multiple-area"><input required type = "text" class = "form-control" id = "add-area1" name = "area[]" placeholder = "e.g. Software Technologies"></div>
+						<div class = "multiple-area"><input required type = "text" class = "form-control add-area" id = "add-area-0" name = "add-area-0" placeholder = "e.g. Software Technologies"></div>
 					</div>
+                        <a href="#" id="remove_area_field" class="remove_field" style="display:none"><i class="fas fa-times"></i> Remove</a>
 					<button id = "add-area-btn" class = "btn btn-primary"><i class="fas fa-plus"></i> Add Area</button>
 					<script>
 						$(document).ready(function() {
-							var add_area_fields = 1;
+				            add_area_fields = 0;
 							var wrapper = $("#area-element");
 							var add_btn = $("#add-area-btn");
 							
 							$(add_btn).on("click", function(e) {
 								e.preventDefault();
-								add_area_fields++;
-								var area = "<div class = \"multiple-area\"><input required type = \"text\" class = \"form-control add-area\" id = \"add-area" + add_area_fields + "\" name = \"add-area"+add_area_fields+"\" placeholder = \"e.g. Software Technologies\"><a href=\"#\" class=\"remove_field\"><i class=\"fas fa-times\"></i> Remove</a></div>";
-								$(wrapper).append(area);
+                                if(add_area_fields<10){
+								    add_area_fields++;
+								    var area = "<div class = \"multiple-area\"><input required type = \"text\" class = \"form-control add-area\" id = \"add-area" + add_area_fields + "\" name = \"add-area-"+add_area_fields+"\" placeholder = \"e.g. Software Technologies\"></div>";
+								    $(wrapper).append(area);
+                                    $("#remove_area_field").show();
+                                }else{
+                                    alert("Max research area is 10");
+                                }
 							});
 							
-							$(wrapper).on("click", ".remove_field", function(e) {
-								e.preventDefault(); $(this).parent("div").remove();
+							$("#remove_area_field").on("click", function(e) {
+								e.preventDefault(); 
+                                if($("#remove_area_field").css("display")=="none"){
+                                    return false;
+                                }
+                                if(add_area_fields==1){
+                                    $("#remove_area_field").hide();
+                                }
+                                $("#area-element").find("div").last().remove();
 								add_area_fields--;
 							});
 						});
@@ -1003,23 +1146,19 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 						#add-area-btn {
 							margin-bottom: 0.5em;
 						}
-						.remove_field {
-							float: right;
-						}
+						
 						.multiple-area {
 							margin-top: 0.5em;
 							margin-bottom: 0.5em;
 						}
-						.remove_field {
-							color: red;
-						}
+				
 						#add-new-person {
 							text-align: center;
 						}
 					</style>
 					<div class = "form-group">
 						<label for = "telephone">Telephone</label>
-						<input required type = "text" class = "form-control" id = "add-telephone" name = "add-telephone" placeholder = "(optional) e.g. (852) 1234 5678">
+						<input type = "text" class = "form-control" id = "add-telephone" name = "add-telephone" placeholder = "(optional) e.g. (852) 1234 5678">
 					</div>
 					<div class = "form-group">
 						<label for = "email">Email</label>
@@ -1027,7 +1166,7 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 					</div>
 					<div class = "form-group">
 						<label for = "homepage">Personal Homepage</label>
-						<input required type = "text" class = "form-control" id = "add-homepage" name = "add-homepage" placeholder = "Place your homepage URL here">
+						<input type = "text" class = "form-control" id = "add-homepage" name = "add-homepage" placeholder = "Place your homepage URL here">
 					</div>
 					<div class = "form-group">
 						<label for = "image">Image</label>
@@ -1041,213 +1180,169 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 				</form>
 				</div>
 				<hr>
-				<script>
-				</script>
 				<div id = "add-new-person">
-					<button type = "submit" Form="addForm" class = "btn btn-primary id="addformaddbutton"><i class="fas fa-users"></i> Add Person</button>
-				<div>
+					<button type = "submit" Form="addForm" class = "btn btn-primary "id="addformaddbutton"><i class="fas fa-users"></i> Add Person</button>
+                </div>
 			</div>
         </div>
-    </div>
-</div>
-        <!--Edit--><!--form,preload data,back button to list can follow editprofile.php access by modal-->
+<!--vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv---Edit Page---vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv-->
+<script>
+			$(document).ready(function() {
+				$("#edit-editForm").on("submit", function(e) {
+                    e.preventDefault;
+					console.log("submitting");
+					//prep area array
+                    
+					var fd=new FormData();
+                    
+					var files=$("#edit-add-image")[0].files[0];
+                   
+					for(var i=0;i<$(".edit-add-area").length;i++){
+						fd.append($(".edit-add-area").eq(i).attr("name"),$(".edit-add-area").eq(i).val());
+					}
+                    for(var i=0;i<$(".edit-multiple-pos").length;i++){
+						fd.append($(".edit-multiple-pos").eq(i).find(".editpos1").attr("name"),$(".edit-multiple-pos").eq(i).find(".editpos1").val());
+                        fd.append($(".edit-multiple-pos").eq(i).find(".editpos2").attr("name"),$(".edit-multiple-pos").eq(i).find(".editpos2").val());
+                        fd.append($(".edit-multiple-pos").eq(i).find(".editpos3").attr("name"),$(".edit-multiple-pos").eq(i).find(".editpos3").val());
+					}
+					//prep file
+                    
+					fd.append("file",files);
+                    fd.apped("edit-originalName",edit_prof_original_name);
+					fd.append("edit-add-EnglishName",$("#edit-add-EnglishName").val());
+					fd.append("edit-add-ChineseName",$("#edit-add-ChineseName").val());
+					fd.append("edit-add-head",$("#edit-add-head").val());
+					fd.append("edit-add-school",$("#edit-add-school").val());
+					fd.append("edit-add-department",$("#edit-add-department").val());
+					fd.append("edit-add-telephone",$("#edit-add-telephone").val());
+					fd.append("edit-add-email",$("#edit-add-email").val());
+					fd.append("edit-add-homepage",$("#edit-add-homepage").val());
+					console.log(fd);
+                   
+					//request
+				    $.ajax({
+                        url: 'editProf.php',
+                        type: 'post',
+                        data: fd,
+                        contentType: false,
+                        processData: false,
+                        dataType: 'json',
+                        success: function(data){
+                            console.log(data);
+                            if(data.success!="success"){
+                                alert("Error"+data.success);
+                            }else{
+                                alert("success");
+                                $("#Home").hide();
+                                $("#Add").hide();
+                                $("#List").show();
+                                $("#Edit").hide();
+                                $("#school").trigger("change");
+                                $("#edit-editForm")[0].reset();
+                                for(var i=edit_add_pos_fields;edit_add_pos_fields!=0;i--){
+                                    $("#edit-remove_pos_field").trigger("click");   
+                                }
+                                for(var i=edit_add_area_fields;edit_add_area_fields!=0;i--){
+                                    $("#edit-remove_area_field").trigger("click");   
+                                }
+                                edit_prof_original_name="";
+                            }
+                        }
+                     })
+                    .done(function(){
+                        alert("done")
+                    })
+                    .fail(function(){
+                        alert("fail");
+                    });
+                    return false;
+				})
+				
+			});
+		</script>    
+		<!--Edit--><!--form,preload data,back button to list can follow editprofile.php access by modal-->
 			<div id="Edit"class="row" style="display:none">
-			 <div class="container rounded bg-white p-2">
-                <div class="row"></div>
-                <hr>
-            <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="container rounded bg-light">
-                        <div class="row">
-                            <div class="col text-center p-3">
-                                <h5>Profile picture</h5>
-                            </div>
-                        </div>
-                            <!--                                              -->   
-                            <div class="row">
-                                <div class="col">
-                                    <div class="profile-header-container">   
-                                      <div class="profile-header-img pt-3">
-                                            <?php 
-                                            $location="profile_pic/".$_SESSION["username"].".png";
-                                            if(file_exists($location)){
-                                                echo "<img id='pic' class='img-circle' src=".$location." />";
-                                            }else{
-                                                echo "<img id='pic' class='img-circle' src='profile_pic/untitle.png' />";
-                                            }
-                                            ?>
-                            <!-- badge -->
-                                            <div class="rank-label-container">
-                                            <span class="label label-default rank-label"><?php
-                                                    echo $_SESSION["username"];
-                                                ?></span>
-                                            </div>
-                                        </div>
-                                    </div> 
-                                </div>
-                            </div>
-                          <!--showing pro pic style-->
-                            <style>
-                                .profile-header-container{
-                                    margin: 0 auto;
-                                    text-align: center;
-                                }
-                                .profile-header-img > img.img-circle {
-                                    width: 120px;
-                                    height: 120px;
-                                    border: 2px solid #51D2B7;
-                                    border-radius: 60px;
-                                }
-
-                                .profile-header {
-                                    margin-top: 43px;
-                                }
-                                
-                                .rank-label-container {
-                                    margin-top: -19px;
-                                /* z-index: 1000; */
-                                    text-align: center;
-                                }
-
-                                .label.label-default.rank-label {
-                                    background-color: rgb(81, 210, 183);
-                                    padding: 5px 10px 5px 10px;
-                                    border-radius: 27px;
-                                }
-                            </style>
-             <!--                                              -->               
-                            <div class="row">
-                                <div class="container" >
-                                    <input type="file" name="file" id="file">
-
-                                    <!-- Drag and Drop container-->
-                                    <div class="upload-area"  id="uploadfile">
-                                        <h5 id="areatext">Drag and Drop file here<br/>Or<br/>Click to select file</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col text-center text-danger p-3" id="propicstatus" style="display:none;" >
-
-                                </div>
-                            </div>
-                            <hr>
-                             <div class="row p-2">
-                                 <script>
-                                     $(document).ready( function(){
-                                        $("#back").on("click",function(){
-                                        window.location="main.php";
-                                        return false;
-                                    })
-                                   });      
-                                 </script>
-                                <div class="col text-center">
-                                    <button id="back" class="btn btn-primary"><i class="fas fa-chevron-circle-left"></i> Back to main page!</button>
-                                </div>
-                            </div>
-                            <div class="row p-2">
-                                <div class="col text-center">
-                                    <button type="submit" form="editForm" id="commit" class="btn btn-primary">  <i class="fas fa-clipboard-check"></i> Commit change   </button>
-                                </div>
-                            </div>
-                             <div class="row">
-                                <div class="col text-center p-3" id="success">
-
-                                </div>
-                            </div>
-                            
-                            <!--           -->
-                            <!--image upload handling-->
-                            <style>
-                                .upload-area{
-                                    width: 100%;
-                                    height: 200px;
-                                    border: 2px dashed lightgray;
-                                    border-radius: 3px;
-                                    margin: 0 auto;
-                                    margin-top: 1em;
-                                    text-align: center;
-                                    overflow: auto;
-                                }
-                                .upload-area.highlight{
-                                    border: 2px dashed gray ;
-                                    border-radius: 3px;
-                                }
-
-                                .upload-area:hover{
-                                    cursor: pointer;
-                                }
-
-                                #areatext{
-                                    text-align: center;
-                                    font-weight: normal;
-                                    font-family: sans-serif;
-                                    line-height: 50px;
-                                    color: lightgray;
-                                }
-
-                                #file{
-                                    display: none;
-                                }
-                            </style>
-                        </div>
-                    </div>
-        
-        <!-- edit-->
-        
-            <div class="col container" style=":90%">
-
+		<div class="col container" style=":90%">
                 <div class="row">
                     <div class="col p-3 text-center">
-                        <h4>Edit record</h4>
+                        <h4>Editing a existing Faculty Member</h4>
                     </div>
                 </div>
-
-
-                        
-                        <!--                            _____________________________________________-->
-                        <div class="form-group"><!--English Name-->
-                            <div class="form-group">
-                                <label for = "EnglishName">English Name </label>
-                                <input required type = "text" class = "form-control" id = "edit-EnglishName" name = "edit-EnglishName" placeholder = "English Name">
-                            </div>
-                            
-                        </div>
-                        
-                        <!--                            _____________________________________________-->                       
-                        <div class="form-group"><!--Chinese Name-->
-                            <div class="form-group">
-                                <label for = "ChineseName">Chinese Name </label>
-                                <input type = "text" class = "form-control" id = "edit-ChineseName" name = "edit-ChineseName" placeholder = "Chinese name">
-                             </div>
-                        </div>                         
-                        
-                        <!--                            _____________________________________________-->
-                        <div class="form-group"><!--Title-->
-                            <div class="form-group">
-                                <label for= "head">Title </label>
-                                <input required type = "text" class = "form-control" id = "edit-head" name = "edit-head" placeholder = "Title">  
-                            </div>   
-                        </div>
-                        
-                        <!--                            _____________________________________________-->                  
-                        <div class="form-group"><!--School-->
-                            <div class="form-group">
-                                <label for= "school">School </label>
-                                <select class = "form-control" id = "edit-school" name = "edit-school">
-                                    <option id="sssci">School of Science</option>
-                                    <option id="sseng">School of Engineering</option>
-                                    <option id="ssbm">School of Business and Management</option>
-                                    <option id="shssu">School of Humanities and Social Science</option>
-                                    <option id="sipo">Interdisciplinary Programs Office</option>
-                                </select>                       
-                            </div>  
-                       </div> 
-                
-                        <!-- Department -->
-                        <div class = "form-group">
+				<hr>
+				<div class="container rounded bg-light">
+					<form id = "edit-editForm">
+					<div class = "form-group">
+						<label for = "EnglishName">English Name</label>
+						<input required type = "text" class = "form-control" id = "edit-EnglishName" name = "edit-EnglishName" placeholder = "e.g. Wong Tai Sin Johnny">
+					</div>
+					<div class = "form-group">
+						<label for = "ChineseName">Chinese Name</label>
+						<input type = "text" class = "form-control" id = "edit-ChineseName" name = "edit-ChineseName" placeholder = "(optional) ">
+					</div>
+                        <!-------------------------------------------------------------->
+                        <script>
+						$(document).ready(function() {
+                            edit_add_pos_fields = 0;
+							var wrapper = $("#edit-pos-element");
+							var add_btn = $("#edit-add-pos-btn");
+							
+							$(add_btn).on("click", function(e) {
+								e.preventDefault();
+                                if(edit_add_pos_fields<5){
+								    edit_add_pos_fields++;
+								    var area = '<div class="edit-multiple-pos"><hr><div class = "form-group"><label for = "head">Title</label><input required type = "text" class = "form-control editpos1" id = "edit-add-head-'+edit_add_pos_fields+'" name = "edit-add-head-'+edit_add_pos_fields+'" placeholder = "e.g. Associate Professor"></div><div class = "form-group"><label for = "school">School</label><select class = "form-control editpos2" id = "edit-add-school-'+edit_add_pos_fields+'" name = "edit-add-school-'+edit_add_pos_fields+'"><option id="sssci">School of Science</option><option id="sseng">School of Engineering</option><option id="ssbm">School of Business and Management</option><option id="shssu">School of Humanities and Social Science</option><option id="sipo">Interdisciplinary Programs Office</option></select></div><div class = "form-group"><label for = "department">Department</label><select class="form-control editpos3" id="edit-add-department-'+edit_add_pos_fields+'" name="edit-add-department-'+edit_add_pos_fields+'"><option></option><optgroup class="ssci" label="School of Science"><option class="ssci">Division of Life Science</option><option class="ssci">Department of Chemistry</option><option class="ssci">Department of Physics</option><option class="ssci">Department of Mathmatics</option><option class="ssci">Department of Ocean Science</option></optgroup><optgroup class="seng" label="School of Engineering"><option class="seng">Department of Chemical and Biological Engineering</option><option class="seng">Department of Civil and Environmental Engineering</option><option class="seng">Department of Computer Science and Engineering</option><option class="seng">Department of Electronic and Computer Engineering</option><option class="seng">Department of Industrial Engineering and Decision Analysis</option><option class="seng">Department of Mechanical and Aerospace Engineering</option><option class="seng">Division of Integrative Systems and Design Engineering</option></optgroup><optgroup class="sbm" label="School of Business and Management"><option class="sbm">Department of Accounting</option><option class="sbm">Department of Economics</option><option class="sbm">Department of Finance</option><option class="sbm">Department of Information Systems, Business Statistics and Operation Management</option><option class="sbm">Department of Management</option><option class="sbm">Department of Marketing</option></optgroup><optgroup class="hssu" label="School of Humanities and Social Science"><option class="hssu">Division of Humanities</option><option class="hssu">Division of Social Science</option></optgroup><optgroup class="ipo" label="Interdisciplinary Programs Office"><option class="ipo">Division of Environment and Sustainability</option><option class="ipo">Division of Public Policy</option></optgroup></select></div></div></div>'
+								    $(wrapper).append(area);
+                                    $("#edit-remove_pos_field").show();
+                                }else{
+                                    alert("Max research area is 5");
+                                }
+							});
+							
+							$("#edit-remove_pos_field").on("click", function(e) {
+								e.preventDefault(); 
+                                if(edit_add_pos_fields==1){
+                                    $("#edit-remove_pos_field").hide();
+                                }
+                                $("#edit-pos-element").children().last().remove();
+								edit_add_pos_fields--;
+							});
+						});
+					</script>
+					<style>
+						#edit-add-pos-btn {
+							margin-bottom: 0.5em;
+						}
+						.edit-remove_field {
+							float: right;
+                            color: red;
+						}
+						.edit-multiple-pos {
+							margin-top: 0.5em;
+							margin-bottom: 0.5em;
+						}
+						#add-new-person {
+							text-align: center;
+						}
+					</style>
+                <div id="edit-pos-element" class="form-group">
+                    <div class="edit-multiple-pos">
+					<div class = "form-group">
+						<label for = "head">Title</label>
+						<input required type = "text" class = "form-control editpos1" id = "edit-add-head-0" name = "edit-add-head-0" placeholder = "e.g. Associate Professor">
+					</div>
+					<div class = "form-group">
+						<label for = "school">School</label>
+						<select class = "form-control editpos2" id = "edit-add-school-0" name = "edit-add-school-0">
+							<option id="sssci">School of Science</option>
+                            <option id="sseng">School of Engineering</option>
+                            <option id="ssbm">School of Business and Management</option>
+                            <option id="shssu">School of Humanities and Social Science</option>
+                            <option id="sipo">Interdisciplinary Programs Office</option>
+						</select>
+					</div>
+					<div class = "form-group">
 						<label for = "department">Department</label>
-						<select class="form-control" id="edit-department" name="edit-department">
+						<select class="form-control editpos3" id="edit-add-department-0" name="edit-add-department-0"><!--hidden attribute use .attr("hidden",false/true); to toggle no need la fuck, a professor can belong to multiple school and multiple department -->
                             <option></option>
                             <optgroup class="ssci" label="School of Science">
 								<option class="ssci">Division of Life Science</option>
@@ -1280,79 +1375,95 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
 								<optgroup class="ipo" label="Interdisciplinary Programs Office">
 								<option class="ipo">Division of Environment and Sustainability</option>
 								<option class="ipo">Division of Public Policy</option>
-								<option class="ipo">Dual Degree Program in Technology and Management</option>
-								<option class="ipo">BSc in Risk Management and Business Intelligence Program</option>
-								<option class="ipo">BSc in Environmental Management and Technology Program</option>
-								<option class="ipo">BSc in Individualized Interdisciplinary Major Program (IIM)</option>
-								<option class="ipo">MPhil/PhD in Environmental Science, Policy and Management Program</option>
-                                <option class="ipo">MSc/PGD in Environmental Science and Management Program</option>
 							</optgroup>
 						</select>
 					</div>
-                
-                          <!-- Research Area________-->
-                          <div id = "edit-area-element" class = "form-group">
-                            <label for = "edit-area">Reasearch Area</label>
-                            <div class = "edit-multiple-area"><input required type = "text" class = "form-control" id = "edit-area1" name = "area[]" placeholder = "Reasearch Area"></div>
-                            </div>
-                            <button id = "edit-add-area-btn" class = "btn btn-primary"><i class="fas fa-plus"></i> Add Area</button>
-                
-                        <script>
-                                $(document).ready(function() {
-                                    var edit_add_area_fields = 1;
-                                    var edit_wrapper = $("#edit-area-element");
-                                    var edit_add_btn = $("#edit-add-area-btn");
-
-                                    $(edit_add_btn).on("click", function(e) {
-                                        e.preventDefault();
-                                        edit_add_area_fields++;
-                                        var edit_area = "<div class = \"edit-multiple-area\"><input required type = \"text\" class = \"form-control\" id = \"add-area" + edit_add_area_fields + "\" name = \"area[]\" placeholder = \"e.g. Software Technologies\"><a href=\"#\" class=\"edit-remove_field\"><i class=\"fas fa-times\"></i> Remove</a></div>";
-                                        $(edit_wrapper).append(edit_area);
-                                    });
-
-                                    $(edit_wrapper).on("click", ".edit-remove_field", function(e) {
-                                        e.preventDefault(); $(this).parent("div").remove();
-                                        edit_add_area_fields--;
-                                    });
-                                });
-                            </script>
-                            <style>
-                                #edit-add-area-btn {
-                                    margin-bottom: 0.5em;
+                    </div>
+                </div>
+                        <a href="#" class="remove_field" id="edit-remove_pos_field" style="display:none"><i class="fas fa-times"></i> Remove</a>
+                        <button id = "edit-add-pos-btn" class = "btn btn-primary"><i class="fas fa-plus"></i> Add Position</button>
+                        <!-------------------------------------------------------------->
+					<div id = "edit-area-element" class = "form-group">
+						<label for = "area">Reasearch Area</label>
+						<div class = "edit-multiple-area"><input required type = "text" class = "form-control edit-add-area" id = "edit-add-area-0" name = "edit-add-area-0" placeholder = "e.g. Software Technologies"></div>
+					</div>
+                        <a href="#" id="edit-remove_area_field" class="edit-remove_field" style="display:none"><i class="fas fa-times"></i> Remove</a>
+					<button id = "edit-add-area-btn" class = "btn btn-primary"><i class="fas fa-plus"></i> Add Area</button>
+					<script>
+						$(document).ready(function() {
+				            edit_add_area_fields = 0;
+							var wrapper = $("#edit-area-element");
+							var add_btn = $("#edit-add-area-btn");
+							
+							$(add_btn).on("click", function(e) {
+								e.preventDefault();
+                                if(edit_add_area_fields<10){
+								    edit_add_area_fields++;
+								    var area = "<div class = \"edit-multiple-area\"><input required type = \"text\" class = \"form-control add-area\" id = \"edit-add-area-" + edit_add_area_fields + "\" name = \"edit-add-area-"+edit_add_area_fields+"\" placeholder = \"e.g. Software Technologies\"></div>";
+								    $(wrapper).append(area);
+                                    $("#edit-remove_area_field").show();
+                                }else{
+                                    alert("Max research area is 10");
                                 }
-                                .edit-remove_field {
-                                    float: right;
+							});
+							
+							$("#edit-remove_area_field").on("click", function(e) {
+								e.preventDefault(); 
+                                if($("#edit-remove_area_field").css("display")=="none"){
+                                    return false;
                                 }
-                                .edit-multiple-area {
-                                    margin-top: 0.5em;
-                                    margin-bottom: 0.5em;
+                                if(edit_add_area_fields==1){
+                                    $("#edit-remove_area_field").hide();
                                 }
-                                .edit-remove_field {
-                                    color: red;
-                                }
-                            </style>
-
-                		<div class = "form-group"> <!--Telephone-->
-						  <label for = "telephone">Telephone</label>
-						  <input required type = "text" class = "form-control" id = "edit-telephone" name = "edit-telephone" placeholder = "Telephone">
-				        </div>
-                
-                        <div class = "form-group"> <!--Email-->
-                            <label for = "email">Email</label>
-                            <input required type = "text" class = "form-control" id = "edit-email" name = "edit-email" placeholder = "Email">
-                        </div>
-                
-                        <div class = "form-group"> <!--Personal Homepage-->
-                            <label for = "homepage">Personal Homepage</label>
-                            <input required type = "text" class = "form-control" id = "edit-homepage" name = "edit-homepage" placeholder = "Personal Homepage">
-                        </div>
-                
-
-                
-            </div>
-        </div>
-    </div>
+                                $("#edit-area-element").find("div").last().remove();
+								edit_add_area_fields--;
+							});
+						});
+					</script>
+					<style>
+						#edit-add-area-btn {
+							margin-bottom: 0.5em;
+						}
+						
+						.edit-multiple-area {
+							margin-top: 0.5em;
+							margin-bottom: 0.5em;
+						}
+				
+						#add-new-person {
+							text-align: center;
+						}
+					</style>
+					<div class = "form-group">
+						<label for = "telephone">Telephone</label>
+						<input type = "text" class = "form-control" id = "edit-add-telephone" name = "edit-add-telephone" placeholder = "(optional) e.g. (852) 1234 5678">
+					</div>
+					<div class = "form-group">
+						<label for = "email">Email</label>
+						<input required type = "text" class = "form-control" id = "edit-add-email" name = "edit-add-email" placeholder = "e.g. johnny@gmail.com">
+					</div>
+					<div class = "form-group">
+						<label for = "homepage">Personal Homepage</label>
+						<input type = "text" class = "form-control" id = "edit-add-homepage" name = "edit-add-homepage" placeholder = "Place your homepage URL here">
+					</div>
+					<div class = "form-group">
+						<label for = "image">Image</label>
+						<br>
+						<!--<input required type = "file" class = "form-control" id = "add-image" name = "add-image">-->
+						<label class="btn btn-info">
+							<input type = "file" class = "form-control" id = "edit-add-image" name = "edit-add-image" style = "display:none;">
+							<i class="far fa-image"></i> Select Image
+						</label>
+					</div>
+				</form>
+				</div>
+				<hr>
+				<div id = "add-new-person">
+					<button type = "submit" Form="edit-editForm" class = "btn btn-primary "id="editaddformaddbutton"><i class="fas fa-users"></i> Edit Person</button>
+                </div>
+			</div>
 </div>
+<!--vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv---Modal Page---vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv-->
     <!--modal for detail-->
     <script>
         $(document).ready(function(){
@@ -1362,6 +1473,72 @@ $firstname = $users[$_SESSION["username"]]["firstname"];
                 $("#Add").hide();
                 $("#List").hide();
                 $("#Edit").show();
+//edit the edit page
+                var profname=$("#spanengname").text();
+                var request=$.ajax({
+                    url: "listProf.php",
+                    type: "GET",
+                    data: {searchname:profname,searchresearch:"",school:"---all---",department:""},
+                    success: function(data){
+ //edit page configure
+                    //image
+                        var node=$(data).find("staff").eq(0);
+                        //if no new image = nochange
+                    //name
+                        edit_prof_original_name=node.find("EnglishName").text();
+                        $("#edit-EnglishName").val(node.find("EnglishName").text());
+                        if(node.find("name").find("ChineseName").text()==""){
+                            $("#edit-ChineseName").val("");    
+                        }else{
+                            $("#edit-ChineseName").val(node.find("ChineseName").text()); 
+                        }
+                    //title
+                        var position=node.find("positions").find("position");
+                        
+                        for(var i =0;i<position.length;i++){
+                            if(i!=0){
+                           $("#edit-add-pos-btn").trigger("click");
+                            }
+                            if(position.eq(i).find("head")!=""){
+                                $("#edit-add-head-"+i).val(position.eq(i).find("head").text());
+                            }
+                            if(position.eq(i).find("department")!=""){
+                                $("#edit-add-department-"+i).val(position.eq(i).find("department").text());
+                            }
+                            if(position.eq(i).find("school")!=""){
+                                $("#edit-add-school-"+i).val(position.eq(i).find("school").text());
+                            }
+                            
+                        }
+                    //research
+                        var area=node.find("researchAreas").find("area");
+                        for(var i=0;i<area.length;i++){
+                            if(i!=0){
+                            $("#edit-add-area-btn").trigger("click");
+                             }
+                            $("#edit-add-area-"+i).val(node.find("researchAreas").find("area").eq(i).text());
+                             
+                        }
+                    //contact
+                        var contact=node.find("contact");
+                        if(contact.find("telephone").text()!=""){
+                            $("#edit-add-telephone").val(contact.find("telephone").text());
+                        }
+                        if(contact.find("email").text()!=""){
+                           $("#edit-add-email").val(contact.find("email").text());
+                        }
+                        if(contact.find("homepage").text()!=""){
+                           $("#edit-add-homepage").val(contact.find("homepage").text());
+                        }
+                    }
+                });
+                request.fail(function(){
+                    alert("internal Error")
+                })
+                 $("#Edit").show();
+                $(".modal").modal("hide");
+                return false;
+               
             });
             $("#modal-delete").on("click",function(){
                 $("#Home").hide();
