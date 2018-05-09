@@ -7,7 +7,7 @@ Every field 2 professor, composite field no double count-->
     <staff>
 		<name>
 			<EnglishName>Chen C. W. Kevin</EnglishName>
-			<ChineseName></ChineseName>
+			<ChineseName/>
 		</name>
 		<positions>
 			<position>
@@ -20,7 +20,7 @@ Every field 2 professor, composite field no double count-->
 			<area>Accounting Research</area>
 		</researchAreas>
 		<contact>
-			<telephone></telephone>
+			<telephone/>
 			<email>acchen@ust.hk</email>
 			<homepage>http://www.bm.ust.hk/acct/faculty-and-staff/directory/acchen</homepage>
 		</contact>
@@ -29,7 +29,7 @@ Every field 2 professor, composite field no double count-->
 	<staff>
 		<name>
 			<EnglishName>Zang Amy</EnglishName>
-			<ChineseName></ChineseName>
+			<ChineseName/>
 		</name>
 		<positions>
 			<position>
@@ -39,7 +39,7 @@ Every field 2 professor, composite field no double count-->
 			</position>
 			<position>
 				<head>Director</head>
-				<department></department>
+				<department/>
 				<school>Interdisciplinary Programs Office</school>
 			</position>
 		</positions>
@@ -56,7 +56,7 @@ Every field 2 professor, composite field no double count-->
 	<staff>
 		<name>
 			<EnglishName>Lim Wooyoung</EnglishName>
-			<ChineseName></ChineseName>
+			<ChineseName/>
 		</name>
 		<positions>
 			<position>
@@ -99,7 +99,7 @@ Every field 2 professor, composite field no double count-->
 			<area>Chinese Economy</area>
 		</researchAreas>
 		<contact>
-			<telephone></telephone>
+			<telephone/>
 			<email>eckwsiu@ust.hk</email>
 			<homepage>http://www.bm.ust.hk/econ/faculty-and-staff/directory/eckwsiu</homepage>
 		</contact>
@@ -108,7 +108,7 @@ Every field 2 professor, composite field no double count-->
 	<staff>
 		<name>
 			<EnglishName>Liu Xue Wen</EnglishName>
-			<ChineseName></ChineseName>
+			<ChineseName/>
 		</name>
 		<positions>
 			<position>
@@ -133,7 +133,7 @@ Every field 2 professor, composite field no double count-->
 	<staff>
 		<name>
 			<EnglishName>Zhang Chu</EnglishName>
-			<ChineseName></ChineseName>
+			<ChineseName/>
 		</name>
 		<positions>
 			<position>
@@ -156,7 +156,7 @@ Every field 2 professor, composite field no double count-->
 	<staff>
 		<name>
 			<EnglishName>Zheng Rong</EnglishName>
-			<ChineseName></ChineseName>
+			<ChineseName/>
 		</name>
 		<positions>
 			<position>
@@ -171,7 +171,7 @@ Every field 2 professor, composite field no double count-->
 			<area>Social network analytics</area>
 		</researchAreas>
 		<contact>
-			<telephone></telephone>
+			<telephone/>
 			<email>rzheng@ust.hk</email>
 			<homepage>http://www.bm.ust.hk/isom/faculty-and-staff/directory/rzheng</homepage>
 		</contact>
@@ -180,7 +180,7 @@ Every field 2 professor, composite field no double count-->
 	<staff>
 		<name>
 			<EnglishName>Nasiry Javad</EnglishName>
-			<ChineseName></ChineseName>
+			<ChineseName/>
 		</name>
 		<positions>
 			<position>
@@ -196,7 +196,7 @@ Every field 2 professor, composite field no double count-->
 			<area>Healthcare management</area>
 		</researchAreas>
 		<contact>
-			<telephone></telephone>
+			<telephone/>
 			<email>nasiry@ust.hk</email>
 			<homepage>http://www.bm.ust.hk/isom/faculty-and-staff/directory/nasiry</homepage>
 		</contact>
@@ -205,7 +205,7 @@ Every field 2 professor, composite field no double count-->
 	<staff>
 		<name>
 			<EnglishName>Ho Mary</EnglishName>
-			<ChineseName></ChineseName>
+			<ChineseName/>
 		</name>
 		<positions>
 			<position>
@@ -221,7 +221,7 @@ Every field 2 professor, composite field no double count-->
 			<area>ESG</area>
 		</researchAreas>
 		<contact>
-			<telephone></telephone>
+			<telephone/>
 			<email>maryho@ust.hk</email>
 			<homepage>http://www.bm.ust.hk/mgmt/faculty-and-staff/directory/maryho</homepage>
 		</contact>
@@ -230,7 +230,7 @@ Every field 2 professor, composite field no double count-->
 	<staff>
 		<name>
 			<EnglishName>Cho Jaee</EnglishName>
-			<ChineseName></ChineseName>
+			<ChineseName/>
 		</name>
 		<positions>
 			<position>
@@ -247,7 +247,7 @@ Every field 2 professor, composite field no double count-->
 			<area>Diversity and Conflict</area>
 		</researchAreas>
 		<contact>
-			<telephone></telephone>
+			<telephone/>
 			<email>jaeecho@ust.hk</email>
 			<homepage>http://www.bm.ust.hk/mgmt/faculty-and-staff/directory/jaeecho</homepage>
 		</contact>
@@ -256,7 +256,7 @@ Every field 2 professor, composite field no double count-->
 	<staff>
 		<name>
 			<EnglishName>Lans Ralf van der</EnglishName>
-			<ChineseName></ChineseName>
+			<ChineseName/>
 		</name>
 		<positions>
 			<position>
@@ -283,7 +283,7 @@ Every field 2 professor, composite field no double count-->
 	<staff>
 		<name>
 			<EnglishName>Lin Song</EnglishName>
-			<ChineseName></ChineseName>
+			<ChineseName/>
 		</name>
 		<positions>
 			<position>
@@ -326,7 +326,7 @@ Every field 2 professor, composite field no double count-->
 		<contact>
 			<telephone>(852) 2358 7823</telephone>
 			<email>socai@ust.hk  </email>
-			<homepage></homepage>
+			<homepage/>
 		</contact>
 		<image>data-pic/socai.jpg</image>
 	</staff>
@@ -352,7 +352,7 @@ Every field 2 professor, composite field no double count-->
 		<contact>
 			<telephone>(852) 2358 7765</telephone>
 			<email>hmwhchan@ust.hk</email>
-			<homepage></homepage>
+			<homepage/>
 		</contact>
 		<image>data-pic/hmwhchan.jpg</image>
 	</staff>
@@ -375,7 +375,7 @@ Every field 2 professor, composite field no double count-->
             <position>
 				<head>Director</head>
 				<department>Robotic Institude</department>
-				<school></school>
+				<school/>
 			</position>
 		</positions>
 		<researchAreas>
@@ -413,7 +413,7 @@ Every field 2 professor, composite field no double count-->
 		<contact>
 			<telephone>(852) 2358 8750</telephone>
 			<email>lambros@ust.hk</email>
-			<homepage></homepage>
+			<homepage/>
 		</contact>
 		<image>data-pic/lambros.jpg</image>
 	</staff>
@@ -440,7 +440,7 @@ Every field 2 professor, composite field no double count-->
 		<contact>
 			<telephone>(852) 2358 7115</telephone>
 			<email>kaylaqi@ust.hk</email>
-			<homepage></homepage>
+			<homepage/>
 		</contact>
 		<image>data-pic/kaylaqi.jpg</image>
 	</staff>
@@ -466,7 +466,7 @@ Every field 2 professor, composite field no double count-->
 		<contact>
 			<telephone>(852) 2358 8029</telephone>
 			<email>eeyuan@ust.hk</email>
-			<homepage></homepage>
+			<homepage/>
 		</contact>
 		<image>data-pic/eeyuan.jpg</image>
 	</staff>
@@ -549,7 +549,7 @@ Every field 2 professor, composite field no double count-->
 		<contact>
 			<telephone>(852) 2358 7361</telephone>
 			<email>chjiag@ust.hk </email>
-			<homepage></homepage>
+			<homepage/>
 		</contact>
 		<image>data-pic/chjiag.jpg</image>
 	</staff>
@@ -575,7 +575,7 @@ Every field 2 professor, composite field no double count-->
 		<contact>
 			<telephone>(852) 2358 7700</telephone>
 			<email>mazgbao@ust.hk</email>
-			<homepage></homepage>
+			<homepage/>
 		</contact>
 		<image>data-pic/mazgbao.jpg</image>
 	</staff>
@@ -604,7 +604,7 @@ Every field 2 professor, composite field no double count-->
 		<contact>
 			<telephone>(852) 2358 7322</telephone>
 			<email>hkpark@ust.hk</email>
-			<homepage></homepage>
+			<homepage/>
 		</contact>
 		<image>data-pic/hkpark.jpg</image>
 	</staff>
@@ -660,4 +660,4 @@ Every field 2 professor, composite field no double count-->
 		</contact>
 		<image>data-pic/bckchung.jpg</image>
 	</staff>
-</staffs>
+<staff><name><EnglishName>Brown</EnglishName><ChineseName/></name><positions><position><head>boss</head><department>Department of Computer Science and Engineering</department><school>School of Engineering</school></position></positions><researchAreas><area>cute1</area><area>cute2</area></researchAreas><contact><telephone>12343212</telephone><email>brown@cute.com</email><homepage>www.facebook.com</homepage></contact><image>data-pic/Brown.jpg</image></staff></staffs>
