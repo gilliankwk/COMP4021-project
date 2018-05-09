@@ -1177,11 +1177,11 @@ var edit_prof_original_name="";
 							<i class="far fa-image"></i> Select Image
 						</label>
 						<br>
-						<div id = "preview-area" style = "display: none; border: 0.5px dashed gray; border-radius: 5px; width: 50vh; height: 50vh;">
+						<div id = "preview-area" style = "display: none; border: 0.5px dashed gray; border-radius: 5px;">
 							<div style = "text-align: center;">
 								<label style = "text-decoration: underline;">Preview</label>
 								<br>
-								<img id = "preview" src = "#" alt = "your image" style = "width: 80%; height: 80%; max-width: 40vh; max-height: 40vh;">
+								<img id = "preview" src = "#" alt = "your image" style = "width: 80%; height: 80%; margin-bottom: 2%;">
 							</div>
 						</div>
 						<script>
