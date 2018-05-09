@@ -4,7 +4,28 @@ optional=are not necessary required, left tag, just left the content NULL
 ...=continue until no data
 Every field 2 professor, composite field no double count-->
 <staffs>
-    
+    <staff>
+		<name>
+			<EnglishName>Chen C. W. Kevin</EnglishName>
+			<ChineseName/>
+		</name>
+		<positions>
+			<position>
+				<head>Head, Chair Professor</head>
+				<department>Department of Accounting</department>
+				<school>School of Business and Management</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Accounting Research</area>
+		</researchAreas>
+		<contact>
+			<telephone/>
+			<email>acchen@ust.hk</email>
+			<homepage>http://www.bm.ust.hk/acct/faculty-and-staff/directory/acchen</homepage>
+		</contact>
+		<image>data-pic/acchen.jpg</image>
+	</staff>
 	<staff>
 		<name>
 			<EnglishName>Zang Amy</EnglishName>
@@ -639,4 +660,4 @@ Every field 2 professor, composite field no double count-->
 		</contact>
 		<image>data-pic/bckchung.jpg</image>
 	</staff>
-<staff><name><EnglishName>Chen C. W. Kevin</EnglishName><ChineseName/></name><positions><position><head>Head, Chair Professor</head><department>Department of Accounting</department><school>School of Business and Management</school></position><position><head>Professor</head><department>Department of Marketing</department><school>School of Business and Management</school></position></positions><researchAreas><area>Accounting Research</area></researchAreas><contact><telephone/><email>acchen@ust.hk</email><homepage>http://www.bm.ust.hk/acct/faculty-and-staff/directory/acchen</homepage></contact><image>data-pic/Chen C. W. Kevin.jpg</image></staff></staffs>
+<staff><name><EnglishName/><ChineseName/></name><positions/><researchAreas/><contact><telephone/><email/><homepage/></contact><image>data-pic/.jpg</image></staff><staff><name><EnglishName>Edward</EnglishName><ChineseName/></name><positions><position><head>Professor</head><department>Department of Economics</department><school>School of Science</school></position></positions><researchAreas><area>gg</area></researchAreas><contact><telephone>90806787</telephone><email>gg@gg.com</email><homepage>hahaha</homepage></contact><image>data-pic/Edward.jpg</image></staff></staffs>

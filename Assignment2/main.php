@@ -1200,6 +1200,7 @@ var edit_prof_original_name="";
 					for(var i=0;i<$(".edit-add-area").length;i++){
 						fd.append($(".edit-add-area").eq(i).attr("name"),$(".edit-add-area").eq(i).val());
 					}
+                    
                     for(var i=0;i<$(".edit-multiple-pos").length;i++){
 						fd.append($(".edit-multiple-pos").eq(i).find(".editpos1").attr("name"),$(".edit-multiple-pos").eq(i).find(".editpos1").val());
                         fd.append($(".edit-multiple-pos").eq(i).find(".editpos2").attr("name"),$(".edit-multiple-pos").eq(i).find(".editpos2").val());
@@ -1208,9 +1209,12 @@ var edit_prof_original_name="";
 					//prep file
                     
 					fd.append("file",files);
-                    fd.apped("edit-originalName",edit_prof_original_name);
-					fd.append("edit-add-EnglishName",$("#edit-add-EnglishName").val());
-					fd.append("edit-add-ChineseName",$("#edit-add-ChineseName").val());
+                    console.log(edit_prof_original_name);
+                    
+                    fd.append("edit-originalName",edit_prof_original_name);
+                    
+					fd.append("edit-add-EnglishName",$("#edit-EnglishName").val());
+					fd.append("edit-add-ChineseName",$("#edit-ChineseName").val());
 					fd.append("edit-add-head",$("#edit-add-head").val());
 					fd.append("edit-add-school",$("#edit-add-school").val());
 					fd.append("edit-add-department",$("#edit-add-department").val());
@@ -1399,7 +1403,7 @@ var edit_prof_original_name="";
 								e.preventDefault();
                                 if(edit_add_area_fields<10){
 								    edit_add_area_fields++;
-								    var area = "<div class = \"edit-multiple-area\"><input required type = \"text\" class = \"form-control add-area\" id = \"edit-add-area-" + edit_add_area_fields + "\" name = \"edit-add-area-"+edit_add_area_fields+"\" placeholder = \"e.g. Software Technologies\"></div>";
+								    var area = "<div class = \"edit-multiple-area\"><input required type = \"text\" class = \"form-control edit-add-area\" id = \"edit-add-area-" + edit_add_area_fields + "\" name = \"edit-add-area-"+edit_add_area_fields+"\" placeholder = \"e.g. Software Technologies\"></div>";
 								    $(wrapper).append(area);
                                     $("#edit-remove_area_field").show();
                                 }else{
@@ -1486,6 +1490,7 @@ var edit_prof_original_name="";
                         //if no new image = nochange
                     //name
                         edit_prof_original_name=node.find("EnglishName").text();
+                        console.log(edit_prof_original_name);
                         $("#edit-EnglishName").val(node.find("EnglishName").text());
                         if(node.find("name").find("ChineseName").text()==""){
                             $("#edit-ChineseName").val("");    

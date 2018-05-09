@@ -7,29 +7,29 @@ $xml->preserveWhiteSpace = true; // remove whitespace nodes
 $xml->load("Prof.xml");
 
 // Retrieve the GET request values
-$eName = trim($_POST["edit-add-EnglishName"]);
-$cName = trim($_POST["edit-add-ChineseName"]);	// optional
-$tel = $_POST["edit-add-telephone"];	// optional
-$mail = trim($_POST["edit-add-email"]);
-$page = trim($_POST["edit-add-homepage"]);//optional
+$eName = trim($_POST["add-EnglishName"]);
+$cName = trim($_POST["add-ChineseName"]);	// optional
+$tel = $_POST["add-telephone"];	// optional
+$mail = trim($_POST["add-email"]);
+$page = trim($_POST["add-homepage"]);//optional
 $area;
 for($i=0;$i<10;$i++){
-    if(isset($_POST["edit-add-area-".$i])){
-        $area[$i]=$_POST["edit-add-area-".$i];
+    if(isset($_POST["add-area-".$i])){
+        $area[$i]=$_POST["add-area-".$i];
     }
 }
 $title;
 $dept;
 $sku;
 for($i=0;$i<5;$i++){
-    if(isset($_POST["edit-add-head-".$i])){
-        $title[$i]=$_POST["edit-add-head-".$i];
+    if(isset($_POST["add-head-".$i])){
+        $title[$i]=$_POST["add-head-".$i];
     }
-    if(isset($_POST["edit-add-department-".$i])){
+    if(isset($_POST["add-department-".$i])){
         $dept[$i]=$_POST["add-department-".$i];
     }
-    if(isset($_POST["edit-add-school-".$i])){
-        $sku[$i]=$_POST["edit-add-school-".$i];
+    if(isset($_POST["add-school-".$i])){
+        $sku[$i]=$_POST["add-school-".$i];
     }
 }
 
@@ -38,7 +38,6 @@ function validateFields() {
 	// Check if the name has been taken
     $names = $xml->getElementsByTagName("EnglishName");
     foreach ($names as $node) {
-        if ($node->nodeValue == )
         if ($node->nodeValue == $eName) {
             return "Name already exists!";
         }
