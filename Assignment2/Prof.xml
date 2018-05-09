@@ -4,7 +4,32 @@ optional=are not necessary required, left tag, just left the content NULL
 ...=continue until no data
 Every field 2 professor, composite field no double count-->
 <staffs>
+<<<<<<< HEAD
     
+=======
+    <staff>
+		<name>
+			<EnglishName>Chen C. W. Kevin</EnglishName>
+			<ChineseName/>
+		</name>
+		<positions>
+			<position>
+				<head>Head, Chair Professor</head>
+				<department>Department of Accounting</department>
+				<school>School of Business and Management</school>
+			</position>
+		</positions>
+		<researchAreas>
+			<area>Accounting Research</area>
+		</researchAreas>
+		<contact>
+			<telephone/>
+			<email>acchen@ust.hk</email>
+			<homepage>http://www.bm.ust.hk/acct/faculty-and-staff/directory/acchen</homepage>
+		</contact>
+		<image>data-pic/acchen.jpg</image>
+	</staff>
+>>>>>>> 0cdf241cbb05ca4281f90b23b80c72033b0303b6
 	<staff>
 		<name>
 			<EnglishName>Zang Amy</EnglishName>
@@ -639,4 +664,8 @@ Every field 2 professor, composite field no double count-->
 		</contact>
 		<image>data-pic/bckchung.jpg</image>
 	</staff>
+<<<<<<< HEAD
 <staff><name><EnglishName>Chen C. W. Kevin</EnglishName><ChineseName/></name><positions><position><head>Head, Chair Professor</head><department>Department of Accounting</department><school>School of Business and Management</school></position><position><head>Professor</head><department>Department of Marketing</department><school>School of Business and Management</school></position></positions><researchAreas><area>Accounting Research</area></researchAreas><contact><telephone/><email>acchen@ust.hk</email><homepage>http://www.bm.ust.hk/acct/faculty-and-staff/directory/acchen</homepage></contact><image>data-pic/Chen C. W. Kevin.jpg</image></staff></staffs>
+=======
+<staff><name><EnglishName>Brown</EnglishName><ChineseName/></name><positions><position><head>boss</head><department>Department of Computer Science and Engineering</department><school>School of Engineering</school></position></positions><researchAreas><area>cute1</area><area>cute2</area></researchAreas><contact><telephone>12343212</telephone><email>brown@cute.com</email><homepage>www.facebook.com</homepage></contact><image>data-pic/Brown.jpg</image></staff></staffs>
+>>>>>>> 0cdf241cbb05ca4281f90b23b80c72033b0303b6

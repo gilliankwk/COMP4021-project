@@ -38,6 +38,7 @@ function validateFields() {
 	// Check if the name has been taken
     $names = $xml->getElementsByTagName("EnglishName");
     foreach ($names as $node) {
+
         if ($node->nodeValue == $eName) {
             return "Name already exists!";
         }

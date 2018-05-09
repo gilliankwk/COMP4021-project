@@ -78,5 +78,15 @@
         "password": "1234567",
         "question": "What is your first phone number?",
         "answer": "94264898"
+    },
+    "Brown": {
+        "photo": "profile_pic\/Brown.png",
+        "username": "Brown",
+        "email": "brown@cute.com",
+        "firstname": "Brown",
+        "lastname": "Kong",
+        "password": "0000",
+        "question": "What will you do when you are boring?",
+        "answer": "Eat"
     }
 }
