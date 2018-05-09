@@ -1173,9 +1173,31 @@ var edit_prof_original_name="";
 						<br>
 						<!--<input required type = "file" class = "form-control" id = "add-image" name = "add-image">-->
 						<label class="btn btn-info">
-							<input required type = "file" class = "form-control" id = "add-image" name = "add-image" style = "display:none;">
+							<input required type = "file" class = "form-control" id = "add-image" name = "add-image" style = "display:none;" onchange = "readURL(this)">
 							<i class="far fa-image"></i> Select Image
 						</label>
+						<br>
+						<div id = "preview-area" style = "display: none; border: 0.5px dashed gray; border-radius: 5px; width: 200px; height: 250px;">
+							<div style = "text-align: center;">
+								<label style = "text-decoration: underline;">Preview</label>
+								<img id = "preview" src = "#" alt = "your image">
+							</div>
+						</div>
+						<script>
+							function readURL(input) {
+								if (input.files && input.files[0]) {
+									var reader = new FileReader();
+									reader.onload = function (e) {
+										$("#preview")
+											.attr("src", e.target.result)
+											.width(150)
+											.height(200);
+									};
+									reader.readAsDataURL(input.files[0]);
+									$("#preview-area").show();
+								}
+							}
+						</script>
 					</div>
 				</form>
 				</div>
